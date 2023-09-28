@@ -3,7 +3,7 @@ package com.childdddd.libdrawalemaker.property
 import androidx.annotation.ColorInt
 
 /**
- * @Author dangxiaohan
+ * @Author Remiel
  * @Date 2023/9/27-11:37
  * @Describe: GradientDrawable属性
  */

@@ -11,7 +11,7 @@ import com.childdddd.libdrawalemaker.property.StokeProperty
 
 /**
 
- * @Author dangxiaohan
+ * @Author Remiel
  * @Date 2023/9/18-16:01
  * @Describe
  */

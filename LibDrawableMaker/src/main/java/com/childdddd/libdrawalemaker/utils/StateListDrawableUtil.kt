@@ -2,7 +2,6 @@ package com.childdddd.libdrawalemaker.utils
 
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.StateListDrawable
-import android.util.Log
 import androidx.annotation.DrawableRes
 import com.childdddd.libdrawalemaker.drawablekt.addSelectedState
 import com.childdddd.libdrawalemaker.property.StateProperty
@@ -10,7 +9,7 @@ import com.childdddd.libdrawalemaker.property.StateProperty2
 
 /**
 
- * @Author dangxiaohan
+ * @Author Remiel
  * @Date 2023/9/26-15:53
  * @Describe
  */
@@ -120,7 +119,6 @@ object StateListDrawableUtil {
          */
         @JvmStatic
         fun drawable(index: Int, normal: Drawable, active: Drawable): Drawable {
-            Log.d("dang", " drawable index = $index")
             val i = if (index >= 0 && index < PROPERTYS.size) index else 0
             return StateListDrawable().apply {
                 addSelectedState(PROPERTYS[i], normal, active)

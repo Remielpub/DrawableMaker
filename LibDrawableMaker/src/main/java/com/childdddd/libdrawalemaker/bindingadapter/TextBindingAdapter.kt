@@ -1,6 +1,5 @@
 package com.childdddd.libdrawalemaker.bindingadapter
 
-import android.util.Log
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.databinding.BindingAdapter
@@ -12,7 +11,7 @@ import com.childdddd.libdrawalemaker.utils.parseColor
 
 /**
 
- * @Author dangxiaohan
+ * @Author Remiel
  * @Date 2023/9/28-18:01
  * @Describe
  */
@@ -58,9 +57,7 @@ fun TextView.setTextColor(property: ColorStateListProperty) {
 )
 fun TextView.setTextColor(property: ColorStateListProperty2) {
     val normal = parseColor(property.normal)
-    Log.d("dang", " setTextColor --- normal: $normal")
     val active = parseColor(property.active)
 
-    Log.d("dang", " setTextColor --- active: $active")
     setTextColor(createColorList(property.type, normal, active))
 }
