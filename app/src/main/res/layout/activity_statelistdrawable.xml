@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.childdddd.libdrawalemaker.utils.StateListDrawableUtil"
+            alias="s"/>
+
+        <import type="com.childdddd.libdrawalemaker.utils.GradientDrawableUtil"
+            alias="g"/>
+
+        <import type="com.childdddd.libdrawalemaker.utils.ColorStateListUtil"
+            alias="c"/>
+        <import type="com.remiel.drawablemaker.R"/>
+
+        <variable
+            name="vm"
+            type="com.remiel.drawablemaker.StateListDrawableViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:text="添加 颜色背景【Selected】状态 selector"
+            style="@style/text_style"
+            android:layout_marginTop="60dp"
+            bindSelected="@{vm.selected}"
+            bg_normalColor="@{@color/teal_200}"
+            bg_selectedColor="@{@color/purple_200}"/>
+
+        <TextView
+            android:id="@+id/tv2"
+            android:text="添加 drawable背景【Selected】状态  selector"
+            style="@style/text_style"
+            android:layout_marginTop="60dp"
+            bindSelected="@{vm.selected}"
+            bg_imageNormal="@{R.drawable.shape_normal}"
+            bg_imageSelected="@{R.drawable.shape_selected}"/>
+
+        <TextView
+            android:id="@+id/tv3"
+            android:text="添加 mipmap背景 【Selected】状态 selector"
+            style="@style/text_style"
+            android:layout_marginTop="30dp"
+            bindSelected="@{vm.selected}"
+            bg_imageNormal="@{R.mipmap.image_normal}"
+            bg_imageSelected="@{R.mipmap.image_selected}"/>
+
+        <TextView
+            android:id="@+id/tv4"
+            android:text="添加 文字 \&amp; mipmap背景的【Selected状态】 selector"
+            style="@style/text_style"
+            android:layout_marginTop="30dp"
+            text_normalColor="@{@color/teal_200}"
+            text_selectedColor="@{@color/purple_200}"
+            bindSelected="@{vm.selected}"
+            bg_state="@{s.setState(0, R.mipmap.image_normal, R.mipmap.image_selected)}"/>
+
+        <TextView
+            android:id="@+id/tv5"
+            style="@style/text_style"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            text_state2='@{c.textStateColor2(1, "#FFBB86FC", "#FF03DAC5")}'
+            android:text="添加 文字 【Selected】状态  \&amp; 颜色背景 \&amp; 动态生成圆角drawable 【Enabled】状态   selector"
+            bindEnabled="@{vm.selected}"
+            bg_state2="@{s.setState2(1, g.drawable(0, @color/teal_200), g.drawable(10, @color/purple_200))}"/>
+
+    </LinearLayout>
+</layout>
