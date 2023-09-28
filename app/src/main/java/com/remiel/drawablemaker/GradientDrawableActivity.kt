@@ -8,7 +8,7 @@ import com.remiel.drawablemaker.databinding.ActivityGradientdrawableBinding
 
 /**
 
- * @Author dangxiaohan
+ * @Author Remiel
  * @Date 2023/9/27-14:42
  * @Describe : GradientDrawable 用法页面
  */

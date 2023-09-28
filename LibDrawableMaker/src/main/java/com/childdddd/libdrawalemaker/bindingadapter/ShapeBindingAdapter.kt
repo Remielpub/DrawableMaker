@@ -3,7 +3,6 @@ package com.childdddd.libdrawalemaker.bindingadapter
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
-import android.util.Log
 import android.view.View
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
@@ -19,7 +18,7 @@ import com.childdddd.libdrawalemaker.utils.StateListDrawableUtil
 import com.childdddd.libdrawalemaker.utils.StateListDrawableUtil.INDEX_SELECTED
 
 /**
- * @Author dangxiaohan
+ * @Author Remiel
  * @Date 2023/9/18-14:01
  * @Describe：shape属性设置BindingAdapter
  */
@@ -127,7 +126,6 @@ fun View.setImageBackground(normal: Drawable, selected: Drawable) {
     ["bg_normalColor", "bg_selectedColor"], requireAll = true
 )
 fun View.setColorBackground(@ColorInt normal: Int, @ColorInt selected: Int) {
-    Log.d("dang", " setColorBackground")
     val normalDrawable = ColorDrawable(normal)
 
     val selectedDrawable = ColorDrawable(selected)
@@ -165,7 +163,6 @@ fun View.setSelectorBackground(property: StateProperty) {
     ["bg_state2"], requireAll = false
 )
 fun View.setSelectorBackground(property: StateProperty2) {
-    Log.d("dang", " bg_state 1: ${property.type}")
     background = StateListDrawableUtil.drawable(property.type, property.normal, property.active)
 }
 
@@ -183,9 +180,7 @@ fun View.bindSelected(isSelected: MutableLiveData<Boolean>) {
 
 @BindingAdapter(value = ["bindEnabled"])
 fun View.bindEnabled(enable: MutableLiveData<Boolean>) {
-    Log.d("dang", " setEnabled : ${enable.value}")
     enable.observe(context as AppCompatActivity) {
-        Log.d("dang", " setEnabled2 : ${enable.value}")
         isEnabled = it
     }
     isEnabled = enable.value!!

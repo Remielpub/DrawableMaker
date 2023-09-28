@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DrawableMaker</string>
+    <string name="statelistdrawable_str1">添加 颜色背景【Selected】状态 selector</string>
+    <string name="statelistdrawable_str2">添加 drawable背景【Selected】状态 selector</string>
+    <string name="statelistdrawable_str3">添加 mipmap背景 【Selected】状态 selector</string>
+    <string name="statelistdrawable_str4"><![CDATA[添加 文字 &amp; mipmap背景的【Selected状态】 selector]]></string>
+    <string name="statelistdrawable_str5"><![CDATA[添加 文字 【Selected】状态 &amp; 颜色背景 &amp; 动态生成圆角drawable 【Enabled】状态 selector]]></string>
 </resources>

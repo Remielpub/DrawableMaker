@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.remiel.drawablemaker.databinding.ActivityStatelistdrawableBinding
 
 /**
- * @Author dangxiaohan
+ * @Author Remiel
  * @Date 2023/9/27-14:42
  * @Describe
  */

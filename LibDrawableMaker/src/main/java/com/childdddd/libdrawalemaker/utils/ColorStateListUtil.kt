@@ -7,7 +7,7 @@ import com.childdddd.libdrawalemaker.property.ColorStateListProperty2
 
 /**
 
- * @Author dangxiaohan
+ * @Author Remiel
  * @Date 2023/9/28-17:37
  * @Describe
  */
