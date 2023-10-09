@@ -12,47 +12,54 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <TextView
+            android:id="@+id/tv_8"
+            style="@style/text_style"
+            android:text="设置【颜色】Drawable背景"
+            android:layout_marginTop="60dp"
+            bg_addCorners="@{g.addCorners(0, @color/purple_200)}"/>
+
+        <TextView
             android:id="@+id/tv1"
             style="@style/text_style"
-            android:text="添加【圆角】【背景颜色】"
+            android:text="设置【圆角】【纯色背景】背景"
             android:layout_marginTop="60dp"
             bg_addCorners="@{g.addCorners(g.cornerRadius(10), @color/purple_200)}"/>
 
         <TextView
             android:id="@+id/tv2"
             style="@style/text_style"
-            android:text="添加【实线边框】"
+            android:text="设置【实线边框】背景"
             android:layout_marginTop="30dp"
             bg_addStroke="@{g.addStroke(1, @color/purple_200)}"/>
 
         <TextView
             android:id="@+id/tv3"
-            android:text="添加【虚线边框】"
+            android:text="设置【虚线边框】背景"
             style="@style/text_style"
             android:layout_marginTop="30dp"
             bg_addStroke="@{g.addDash(2, @color/purple_200, 10, 10)}" />
 
         <TextView
             android:id="@+id/tv4"
-            android:text="同时添加【圆角】【背景颜色】【实线边框】(方式1)"
+            android:text="同时设置【圆角】【纯色背景】【实线边框】(方式1)"
             style="@style/text_style"
-            android:layout_margin="30dp"
+            android:layout_margin="15dp"
             bg_addCorners="@{g.addCorners(g.cornerRadius(10), @color/purple_200)}"
             bg_addStroke="@{g.addStroke(2, @color/teal_200)}"/>
 
         <TextView
             android:id="@+id/tv5"
-            android:text="同时添加【圆角】【背景颜色】【虚线边框】(方式1)"
+            android:text="同时设置【圆角】【纯色背景】【虚线边框】(方式1)"
             style="@style/text_style"
-            android:layout_margin="30dp"
+            android:layout_margin="15dp"
             bg_addCorners="@{g.addCorners(10, @color/purple_200)}"
             bg_addStroke="@{g.addDash(2, @color/teal_200, 10, 10)}"/>
 
         <TextView
             android:id="@+id/tv6"
-            android:text="同时添加【部分圆角】【背景颜色】【实线边框】(方式2)"
+            android:text="同时设置【部分圆角】【纯色背景】【实线边框】(方式2)"
             style="@style/text_style"
-            android:layout_margin="30dp"
+            android:layout_margin="15dp"
             bg_corners="@{g.cornerRadius(0, 10, 10, 0)}"
             bg_solidColor="@{@color/purple_200}"
             bg_strokeWitdh="@{2}"
@@ -60,9 +67,9 @@
 
         <TextView
             android:id="@+id/tv7"
-            android:text="同时添加【部分圆角】【背景颜色】【虚线边框】(方式2)"
+            android:text="同时设置【部分圆角】【纯色背景】【虚线边框】(方式2)"
             style="@style/text_style"
-            android:layout_margin="30dp"
+            android:layout_margin="15dp"
             bg_corners="@{g.cornerRadius(0, 10, 10, 0)}"
             bg_solidColor="@{@color/purple_200}"
             bg_strokeWitdh="@{2}"
