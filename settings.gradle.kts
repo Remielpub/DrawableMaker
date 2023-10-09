@@ -10,9 +10,11 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
     }
 }
 
 rootProject.name = "DrawableMaker"
 include(":app")
 include(":LibDrawableMaker")
+include(":ModuleAAR")

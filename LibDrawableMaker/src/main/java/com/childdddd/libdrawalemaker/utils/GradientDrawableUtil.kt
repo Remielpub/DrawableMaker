@@ -198,7 +198,7 @@ object GradientDrawableUtil {
          * @param radius Int
          */
         @JvmStatic
-        fun drawable(radius: Int) {
+        fun drawable(radius: Int): Drawable {
             return drawable(cornerRadius(radius))
         }
 
@@ -210,7 +210,7 @@ object GradientDrawableUtil {
          * @param radius IntArray
          */
         @JvmStatic
-        fun drawable(radius: IntArray) {
+        fun drawable(radius: IntArray): Drawable {
             return drawable(radius)
         }
 

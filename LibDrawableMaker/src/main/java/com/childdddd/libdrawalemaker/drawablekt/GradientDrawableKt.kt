@@ -1,7 +1,7 @@
 package com.childdddd.libdrawalemaker.drawablekt
 
 import android.graphics.drawable.GradientDrawable
-import com.blankj.utilcode.util.SizeUtils
+import com.childdddd.libdrawalemaker.utils.dp
 
 /**
 
@@ -26,11 +26,11 @@ fun GradientDrawable.addStroke(
 ) {
     if (strokeWitdh != 0 && dashWidth != 0f && dashGap != 0f) { //设置边框描边 + 虚线
         setStroke(
-            SizeUtils.dp2px(strokeWitdh.toFloat()), stokeColor,
-            SizeUtils.dp2px(dashWidth).toFloat(), SizeUtils.dp2px(dashGap).toFloat()
+            strokeWitdh.dp.toInt(), stokeColor,
+            dashWidth.dp, dashGap.dp
         )
     } else if (strokeWitdh != 0) { //设置边框描边
-        setStroke(SizeUtils.dp2px(strokeWitdh.toFloat()), stokeColor)
+        setStroke(strokeWitdh.dp.toInt(), stokeColor)
     }
 }
 
@@ -41,16 +41,16 @@ fun GradientDrawable.addStroke(
 fun GradientDrawable.addCorners(radius: IntArray) {
     cornerRadii = floatArrayOf(
         //左上
-        SizeUtils.dp2px(radius[0].toFloat()).toFloat(),
-        SizeUtils.dp2px(radius[0].toFloat()).toFloat(),
+        radius[0].dp,
+        radius[0].dp,
         //右上
-        SizeUtils.dp2px(radius[1].toFloat()).toFloat(),
-        SizeUtils.dp2px(radius[1].toFloat()).toFloat(),
+        radius[1].dp,
+        radius[1].dp,
         //右下
-        SizeUtils.dp2px(radius[2].toFloat()).toFloat(),
-        SizeUtils.dp2px(radius[2].toFloat()).toFloat(),
+        radius[2].dp,
+        radius[2].dp,
         //左下
-        SizeUtils.dp2px(radius[3].toFloat()).toFloat(),
-        SizeUtils.dp2px(radius[3].toFloat()).toFloat()
+        radius[3].dp,
+        radius[3].dp,
     )
 }

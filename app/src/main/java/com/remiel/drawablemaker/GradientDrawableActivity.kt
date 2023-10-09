@@ -2,8 +2,10 @@ package com.remiel.drawablemaker
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.childdddd.libdrawalemaker.utils.GradientDrawableUtil
 import com.remiel.drawablemaker.databinding.ActivityGradientdrawableBinding
 
 /**
@@ -19,6 +21,9 @@ class GradientDrawableActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGradientdrawableBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val drawable = GradientDrawableUtil.drawable(10, Color.RED,  5, Color.BLUE)
+        binding.tv1.background = drawable
     }
 
     companion object {
