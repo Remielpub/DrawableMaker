@@ -1,4 +1,4 @@
-<img title="" src="file:///Users/msb/Documents/GitHub/DrawableMaker/image/image_title.png" alt="image_title.png" data-align="left">
+<img title="" src="https://github.com/Remielpub/DrawableMaker/blob/main/image/image_title.png" alt="image_title.png" data-align="left">
 
 [English](README.MD) | 中文
 
@@ -56,8 +56,6 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 ```
 
 效果图：
-
-
 
 ![image_gradient_1.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_1.jpg)
 
@@ -443,7 +441,6 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
         <TextView
             android:id="@+id/tv5"
             style="@style/text_style"
-            android:text="添加 文字 【Selected】状态 & 颜色背景 & 动态生成圆角drawable 【Enabled】状态 selector"
             android:layout_marginTop="30dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
