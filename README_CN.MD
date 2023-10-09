@@ -26,7 +26,7 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 
 ## **使用方式：**
 
-### 1.配合ViewBinding 与 BindingAdapter（推荐）
+### 1 配合ViewBinding 与 BindingAdapter在布局xml中使用
 
 #### 1.1 ColorDrawable & GradientDrawable
 
@@ -57,7 +57,9 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 
 效果图：
 
-![image_gradient_1.jpg](/Users/msb/Documents/GitHub/DrawableMaker/image/image_gradient_1.jpg)
+
+
+![image_gradient_1.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_1.jpg)
 
 ##### 1.1.2 设置添加 【圆角】【纯色】背景
 
@@ -87,7 +89,7 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 
 效果图：
 
-![image_gradient_2.jpg](/Users/msb/Documents/GitHub/DrawableMaker/image/image_gradient_2.jpg)
+![image_gradient_2.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_2.jpg)
 
 ##### 1.1.3 设置添加【实线边框】背景
 
@@ -116,7 +118,7 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 
 效果图
 
-![image_gradient_3.jpg](/Users/msb/Documents/GitHub/DrawableMaker/image/image_gradient_3.jpg)
+![image_gradient_3.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_3.jpg)
 
 ##### 1.1.4 设置添加【虚线边框】背景
 
@@ -146,7 +148,7 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 
 效果图
 
-![image_gradient_4.jpg](/Users/msb/Documents/GitHub/DrawableMaker/image/image_gradient_4.jpg)
+![image_gradient_4.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_4.jpg)
 
 ##### 1.1.5 同时设置【圆角】【纯色背景】【实线边框】(方式1)
 
@@ -176,7 +178,7 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 
 效果图
 
-![image_gradient_5.jpg](/Users/msb/Documents/GitHub/DrawableMaker/image/image_gradient_5.jpg)
+![image_gradient_5.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_5.jpg)
 
 ##### 1.1.6 同时设置【部分圆角】【纯色背景】【实线边框】(方式2)
 
@@ -208,9 +210,7 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 
 效果图
 
-
-
-![image_gradient_6.jpg](/Users/msb/Documents/GitHub/DrawableMaker/image/image_gradient_6.jpg)
+![image_gradient_6.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_6.jpg)
 
 ##### 1.1.7 同时设置【圆角】【纯色背景】【虚线边框】(方式1)
 
@@ -240,7 +240,7 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 
 效果图
 
-![image_gradient_7.jpg](/Users/msb/Documents/GitHub/DrawableMaker/image/image_gradient_7.jpg)
+![image_gradient_7.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_7.jpg)
 
 ##### 1.1.8 同时设置【部分圆角】【纯色背景】【虚线边框】(方式2)
 
@@ -274,7 +274,7 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 
 效果图如下：
 
-![image_gradient_8.jpg](/Users/msb/Documents/GitHub/DrawableMaker/image/image_gradient_8.jpg)
+![image_gradient_8.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_8.jpg)
 
 #### 1.2 StateListDrawable
 
@@ -308,7 +308,7 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 
 效果图
 
-![image_statelist_1.gif](/Users/msb/Documents/GitHub/DrawableMaker/image/image_statelist_1.gif)
+![image_statelist_1.gif](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_statelist_1.gif)
 
 ##### 1.2.2 添加 drawable背景【Selected】状态 selector Drawable
 
@@ -342,7 +342,7 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 
 效果图
 
-![image_statelist_2.gif](/Users/msb/Documents/GitHub/DrawableMaker/image/image_statelist_2.gif)
+![image_statelist_2.gif](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_statelist_2.gif)
 
 ##### 1.2.3 添加 mipmap背景 【Selected】状态 selector Drawable
 
@@ -376,7 +376,7 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 
 效果图
 
-![image_statelist_3.gif](/Users/msb/Documents/GitHub/DrawableMaker/image/image_statelist_3.gif)
+![image_statelist_3.gif](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_statelist_3.gif)
 
 ##### 1.2.4 添加 文字 & mipmap背景的【Selected状态】 selector Drawable
 
@@ -413,7 +413,7 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 
 效果图
 
-![image_statelist_4.gif](/Users/msb/Documents/GitHub/DrawableMaker/image/image_statelist_4.gif)
+![image_statelist_4.gif](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_statelist_4.gif)
 
 ##### 1.2.5 添加 文字 【Selected】状态 & 颜色背景 & 动态生成圆角drawable 【Enabled】状态 selector
 
@@ -456,4 +456,13 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 
 效果图
 
-![image_statelist_5.gif](/Users/msb/Documents/GitHub/DrawableMaker/image/image_statelist_5.gif)
+![image_statelist_5.gif](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_statelist_5.gif)
+
+### 2. 在代码中使用
+
+```kotlin
+        val drawable = GradientDrawableUtil.drawable(10, Color.RED,  5, Color.BLUE)
+        view.background = drawable 
+```
+
+代码中使用方式与xml中，创建Drawable对象方式一样，这里就不再赘述。
