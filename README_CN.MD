@@ -1,6 +1,6 @@
 <img title="" src="https://github.com/Remielpub/DrawableMaker/blob/main/image/image_title.png" alt="image_title.png" data-align="left">
 
-[English](README.MD) | 中文
+[English](https://github.com/Remielpub/DrawableMaker/blob/main/README.md) | 中文
 
 Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨在搭建xml布局过程中，需要创建Drawable时，不需要频繁切换文件编辑TAG，使编码更流畅；同时可以略微降低APK大小（毕竟一个Drawable文件也要200B， 100个就要20K）
 
