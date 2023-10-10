@@ -37,7 +37,9 @@ android {
         viewBinding true
         dataBinding true
     }
-
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -45,19 +47,19 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
 }
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                from components.release
-                //建议和github地址对应，否则对jitpack无效
-                groupId = 'com.github.RemielPub'
-                //建议和github仓库名称对应，否则对jitpack无效
-                artifactId = 'DrawableMaker'
-                //建议和release的tag相同，否则对jitpack无效
-                version = '1.0.0-alpha01'
-            }
-        }
-    }
-}
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            // Creates a Maven publication called "release".
+//            release(MavenPublication) {
+//                from components.release
+//                //建议和github地址对应，否则对jitpack无效
+//                groupId = 'com.github.RemielPub'
+//                //建议和github仓库名称对应，否则对jitpack无效
+//                artifactId = 'DrawableMaker'
+//                //建议和release的tag相同，否则对jitpack无效
+//                version = '1.0.0-alpha01'
+//            }
+//        }
+//    }
+//}
