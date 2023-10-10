@@ -5,7 +5,7 @@ plugins {
     id 'kotlin-kapt'
 
 }
-apply from: 'publishing.gradle'
+//apply from: 'publishing.gradle'
 
 android {
     namespace 'com.childdddd.libdrawablemaker'
