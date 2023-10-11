@@ -435,42 +435,6 @@ Result
 
 ![image_statelist_4.gif](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_statelist_4.gif)
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <data>
-        <import type="com.childdddd.libdrawalemaker.utils.StateListDrawableUtil"
-            alias="s"/>
-
-        <import type="com.childdddd.libdrawalemaker.utils.GradientDrawableUtil"
-            alias="g"/>
-
-        <import type="com.childdddd.libdrawalemaker.utils.ColorStateListUtil"
-            alias="c"/>
-        <variable
-            name="vm"
-            type="com.remiel.drawablemaker.StateListDrawableViewModel" />
-    </data>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/tv5"
-            style="@style/text_style"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            text_state2='@{c.textStateColor2(1, "#FFBB86FC", "#FF03DAC5")}'
-            bindEnabled="@{vm.selected}"
-            bg_state2="@{s.setState2(1, g.drawable(0, @color/teal_200), g.drawable(10, @color/purple_200))}"/>
-    </LinearLayout>
-</layout>
-```
-
 ##### 1.2.5 Add text [Selected] status & Color background & dynamically generated rounded corner drawable [Enabled] Status selector<?xml version="1.0" encoding="utf-8"?>
 
 ```xml
