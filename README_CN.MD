@@ -2,7 +2,31 @@
 
 [English](https://github.com/Remielpub/DrawableMaker/blob/main/README.md) | 中文
 
+[![](https://jitpack.io/v/Remielpub/DrawableMaker.svg)](https://jitpack.io/#Remielpub/DrawableMaker)
+[![](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](https://github.com/Remielpub/DrawableMaker/blob/main/LICENSE)
+
 Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨在搭建xml布局过程中，需要创建Drawable时，不需要频繁切换文件编辑TAG，使编码更流畅；同时可以略微降低APK大小（毕竟一个Drawable文件也要200B， 100个就要20K）
+
+## 引用方法
+
+在根目录的 build.gradle 添加：
+
+```groovy
+allprojects {
+    repositories {
+        // ...
+        maven { url 'https://www.jitpack.io' }
+    }
+}
+```
+
+添加依赖：
+
+```groovy
+dependencies {
+    implementation("com.github.Remielpub:DrawableMaker:1.0.0-alpha-4")
+}
+```
 
 ## 原理
 
@@ -458,8 +482,16 @@ Drawable Maker 是一个Android 简化Drawable创建及使用的工具库，旨�
 ### 2. 在代码中使用
 
 ```kotlin
-        val drawable = GradientDrawableUtil.drawable(10, Color.RED,  5, Color.BLUE)
-        view.background = drawable 
+val drawable = GradientDrawableUtil.drawable(10, Color.RED,  5, Color.BLUE)
+view.background = drawable 
 ```
 
 代码中使用方式与xml中，创建Drawable对象方式一样，这里就不再赘述。
+
+## TODO
+
+1.渐变色背景支持 
+
+2.使用设计模式对项目重构，方便后续扩展及使用
+
+##### 有问题欢迎随时联系我，QQ：120051195
