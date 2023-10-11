@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.remiel.drawablemaker.databinding.ActivityGradientdrawableBinding
 
 /**
-
  * @Author Remiel
  * @Date 2023/9/27-14:42
  * @Describe : GradientDrawable 用法页面

@@ -1,5 +1,3 @@
-##### 1.2.5 Add text [Selected] status & Color background & dynamically generated rounded corner drawable [Enabled] Status selector<?xml version="1.0" encoding="utf-8"?>
-
 ![image_title.png](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_title.png)
 
 English | [中文](https://github.com/Remielpub/DrawableMaker/blob/main/README_CN.MD)
@@ -26,7 +24,7 @@ Add dependencies:
 
 ```groovy
 dependencies {
-    implementation("com.github.Remielpub:DrawableMaker:1.0.0-alpha-4")
+    implementation("com.github.Remielpub:DrawableMaker:1.0.0-alpha06")
 }
 ```
 
@@ -201,6 +199,7 @@ Result
 ```
 
 Result
+![image_gradient_5.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_5.jpg)
 
 ##### 1.1.6 At the same time set [partial rounded corners] [solid color background] [solid line border] (Method 2)
 
@@ -261,6 +260,7 @@ Result
 ```
 
 Result
+![image_gradient_7.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_7.jpg)
 
 ##### 1.1.8 At the same time set [partial rounded corners] [solid color background] [dashed border] (Method 2)
 
