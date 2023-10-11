@@ -24,7 +24,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation("com.github.Remielpub:DrawableMaker:1.0.0-alpha-4")
+    implementation("com.github.Remielpub:DrawableMaker:1.0.0-alpha06")
 }
 ```
 

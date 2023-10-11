@@ -48,9 +48,6 @@ dependencies {
     implementation("com.google.android.material:material:1.8.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 //    implementation(project(":LibDrawableMaker"))
-    implementation("com.github.Remielpub:DrawableMaker:1.0.0-alpha-4")
-//    implementation("io.github.remielpub:DrawableMaker:1.0.0")
-//    implementation(project(":ModuleAAR"))
-//    implementation("io.github.remielpub:DrawableMaker:1.0.1")
+    implementation("com.github.Remielpub:DrawableMaker:1.0.0-alpha06")
     implementation("androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.2")
 }
