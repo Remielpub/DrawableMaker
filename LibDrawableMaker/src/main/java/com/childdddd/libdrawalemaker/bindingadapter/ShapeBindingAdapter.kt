@@ -12,7 +12,7 @@ import androidx.lifecycle.MutableLiveData
 import com.childdddd.libdrawalemaker.property.CornerProperty
 import com.childdddd.libdrawalemaker.property.StateProperty
 import com.childdddd.libdrawalemaker.property.StateProperty2
-import com.childdddd.libdrawalemaker.property.StokeProperty
+import com.childdddd.libdrawalemaker.property.StrokeProperty
 import com.childdddd.libdrawalemaker.utils.GradientDrawableUtil
 import com.childdddd.libdrawalemaker.utils.StateListDrawableUtil
 import com.childdddd.libdrawalemaker.utils.StateListDrawableUtil.INDEX_SELECTED
@@ -22,6 +22,14 @@ import com.childdddd.libdrawalemaker.utils.StateListDrawableUtil.INDEX_SELECTED
  * @Date 2023/9/18-14:01
  * @Describe：shape属性设置BindingAdapter
  */
+
+@BindingAdapter(
+    value =
+    ["bg_drawable"], requireAll = false
+)
+fun View.setViewBackground(drawable: Drawable) {
+    background = drawable
+}
 
 /**
  * 添加边框 / 虚线描边 bindingAdapter
@@ -67,7 +75,7 @@ fun View.setViewBackground(
  *
  * @receiver      [View]
  * @param corner  [CornerProperty] : 圆角及背景属性值
- * @param stroke   [StokeProperty]  : 描边属性值
+ * @param stroke   [StrokeProperty]  : 描边属性值
  */
 @BindingAdapter(
     value =
@@ -75,7 +83,7 @@ fun View.setViewBackground(
 )
 fun View.setViewBackground(
     corner: CornerProperty? = null,
-    stroke: StokeProperty? = null
+    stroke: StrokeProperty? = null
 ) {
     background = GradientDrawableUtil.drawable(corner, stroke)
 }

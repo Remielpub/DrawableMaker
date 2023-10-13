@@ -1,6 +1,10 @@
 package com.childdddd.libdrawalemaker.drawablekt
 
+import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
+import com.childdddd.libdrawalemaker.property.CornerProperty
+import com.childdddd.libdrawalemaker.property.GradientProperty
+import com.childdddd.libdrawalemaker.property.StrokeProperty
 import com.childdddd.libdrawalemaker.utils.dp
 
 /**
@@ -9,6 +13,17 @@ import com.childdddd.libdrawalemaker.utils.dp
  * @Date 2023/9/26-10:52
  * @Describe
  */
+
+fun  GradientDrawable.addStroke(strokeProperty: StrokeProperty) {
+    this.shape = strokeProperty.shape
+    this.addStroke(
+        strokeProperty.strokeWith,
+        strokeProperty.strokeColor,
+        strokeProperty.dashWidth,
+        strokeProperty.dashGap
+    )
+    this.useLevel = strokeProperty.useLevel
+}
 
 /**
  * 添加边框 / 虚线描边
@@ -34,6 +49,13 @@ fun GradientDrawable.addStroke(
     }
 }
 
+fun GradientDrawable.addCorner(cornerProperty: CornerProperty) {
+    this.shape = cornerProperty.shape
+    this.addCorners(cornerProperty.radius)
+    this.setColor(cornerProperty.solidColor)
+    this.useLevel = cornerProperty.useLevel
+}
+
 /**
  * 为Drawable 添加圆角
  * @param radius IntArray: 圆角大小，单位dp
@@ -53,4 +75,58 @@ fun GradientDrawable.addCorners(radius: IntArray) {
         radius[3].dp,
         radius[3].dp,
     )
+}
+
+fun GradientDrawable.addGradient(gradientProperty: GradientProperty) {
+    shape = gradientProperty.shape
+
+    when (gradientProperty.gradientType) {
+        GradientDrawable.LINEAR_GRADIENT -> {
+            gradientType = GradientDrawable.LINEAR_GRADIENT
+            orientation = gradientProperty.orientation
+        }
+        GradientDrawable.RADIAL_GRADIENT -> {
+            gradientType = GradientDrawable.RADIAL_GRADIENT
+            gradientRadius = gradientProperty.gradientRadius.dp
+            gradientProperty.center.let {
+                setGradientCenter(it.first, it.second)
+            }
+        }
+        GradientDrawable.SWEEP_GRADIENT -> {
+            gradientType = GradientDrawable.SWEEP_GRADIENT
+        }
+    }
+    colors = gradientProperty.colors
+
+    if (gradientProperty.useLevel) {
+        useLevel = true
+        level = gradientProperty.level
+    }
+}
+
+fun GradientDrawable.addGradient(
+    colors: IntArray,
+    orientation: GradientDrawable.Orientation,
+    gradientType: Int = GradientDrawable.LINEAR_GRADIENT,
+    gradientRadius: Float = 0f,
+    center: Pair<Float, Float> = Pair(0.5f, 0.5f),
+    useLevel: Boolean = false,
+    level: Int = 10000
+) {
+    this.colors = colors
+    this.orientation = orientation
+    this.gradientType = gradientType
+    if (useLevel) {
+        this.useLevel = useLevel
+        this.level = level
+    }
+
+    if (gradientType == GradientDrawable.RADIAL_GRADIENT) {
+        this.gradientRadius = gradientRadius
+        setGradientCenter(center.first, center.second)
+    }
+}
+
+fun Drawable.commonProperty(level: Int) {
+    this.level = level
 }

@@ -1,6 +1,12 @@
 package com.childdddd.libdrawalemaker.property
 
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
 import androidx.annotation.ColorInt
+import androidx.annotation.IntDef
+import com.childdddd.libdrawalemaker.drawablekt.addCorner
+import com.childdddd.libdrawalemaker.drawablekt.addGradient
+import com.childdddd.libdrawalemaker.drawablekt.addStroke
 
 /**
  * @Author Remiel
@@ -15,23 +21,22 @@ import androidx.annotation.ColorInt
  * @property solidColor Int 填充颜色
  * @constructor
  */
-data class CornerProperty(var radius: IntArray, @ColorInt var solidColor: Int) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
+data class CornerProperty(
+    var radius: IntArray,
+    @ColorInt var solidColor: Int,
+    @Shape var shape: Int = GradientDrawable.RECTANGLE,
+    var useLevel: Boolean = false,
+    override var level: Int = 10000,
+) : BaseProperty(level) {
 
-        other as CornerProperty
+    override fun draw(drawable: Drawable) {
+        super.draw(drawable)
+        draw(drawable as GradientDrawable)
 
-        if (!radius.contentEquals(other.radius)) return false
-        if (solidColor != other.solidColor) return false
-
-        return true
     }
 
-    override fun hashCode(): Int {
-        var result = radius.contentHashCode()
-        result = 31 * result + solidColor
-        return result
+    private fun draw(drawable: GradientDrawable) {
+        drawable.addCorner(this)
     }
 }
 
@@ -43,4 +48,90 @@ data class CornerProperty(var radius: IntArray, @ColorInt var solidColor: Int) {
  * @property dashGap    Float   虚线间隔
  * @constructor
  */
-data class StokeProperty(var stokeWith: Int, @ColorInt var stokeColor: Int, var dashWidth: Float = 0F, var dashGap: Float = 0F)
+data class StrokeProperty(
+    var strokeWith: Int,
+    @ColorInt var strokeColor: Int,
+    var dashWidth: Float = 0F,
+    var dashGap: Float = 0F,
+    @Shape var shape: Int = GradientDrawable.RECTANGLE,
+    var useLevel: Boolean = false,
+    override var level: Int = 10000,
+) : BaseProperty(level) {
+
+    override fun draw(drawable: Drawable) {
+        super.draw(drawable)
+        draw(drawable as GradientDrawable)
+    }
+
+    private fun draw(drawable: GradientDrawable) {
+        drawable.addStroke(this)
+    }
+}
+
+
+/**
+ * 渐变属性
+ *
+ * @property colors IntArray : 颜色渐变数组
+ * @property orientation Orientation : 渐变方向
+ *  orientation 即为在xml中的 android:angle 属性
+ *  <p>这里有个坑，在xml中设置android:angle时，只有设置为以下值才能生效：</p>
+ *  0, 45, 90, 135, 180, 225, 270, 315, 360
+ *  与orientation 值对应关系为：
+ *  0   = Orientation.LEFT_RIGHT
+ *  45  = Orientation.BL_TR
+ *  90  = Orientation.BOTTOM_TOP
+ *  135 = Orientation.BR_TL
+ *  180 = Orientation.RIGHT_LEFT
+ *  225 = Orientation.TR_BL
+ *  270 = Orientation.TOP_BOTTOM
+ *  315 = Orientation.TL_BR
+ *  设置上面的值以外的值时，会设置为默认值： 90， Orientation.BOTTOM_TOP
+ *  @see [GradientDrawable.Orientation]
+ *
+ * @property gradientType Int： 渐变类型，取值范围
+ * GradientDrawable.LINEAR_GRADIENT 线性渐变
+ * GradientDrawable.RADIAL_GRADIENT 辐射渐变
+ * GradientDrawable.SWEEP_GRADIENT 扫描渐变
+ *
+ * 当 gradientType = RADIAL_GRADIENT时，以下两个属性生效；否则不生效
+ *
+ *  另外，GradientDrawable中有以下几个方法：
+ *  setTint()
+ *  setTintList(ColorStateList)
+ *  setTintMode(PorterDuff.Mode)
+ *  setTintBlendMode(BlendMode)
+ *  这几个方法都是设置着色器，但是在GradientDrawable中，只有setTint()方法生效，其他的方法都不生效(Copilot 说的，不知道对不对)
+ *
+ * @property gradientRadius Float： 辐射渐变半径
+ * @property center Pair<Float, Float> ： 辐射渐变中心点比例
+ * @constructor
+ */
+
+data class GradientProperty(
+    var colors: IntArray,
+    var orientation: GradientDrawable.Orientation,
+    @GradientType var gradientType: Int = GradientDrawable.LINEAR_GRADIENT,
+    var gradientRadius: Float = 0F,
+    var center: Pair<Float, Float> = Pair(0.5F, 0.5F),
+    @Shape var shape: Int = GradientDrawable.RECTANGLE,
+    var useLevel: Boolean = false,
+    override var level: Int = 10000,
+) : BaseProperty(level) {
+
+    override fun draw(drawable: Drawable) {
+        super.draw(drawable)
+        draw(drawable as GradientDrawable)
+    }
+
+    private fun draw(drawable: GradientDrawable) {
+        drawable.addGradient(this)
+    }
+}
+
+
+@IntDef(*[GradientDrawable.LINEAR_GRADIENT, GradientDrawable.RADIAL_GRADIENT, GradientDrawable.SWEEP_GRADIENT])
+@Retention(
+    AnnotationRetention.SOURCE
+)
+annotation class GradientType

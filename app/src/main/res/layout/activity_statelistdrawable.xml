@@ -23,53 +23,58 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+<!--        bg_normalColor="@{@color/teal_200}"-->
+<!--        bg_selectedColor="@{@color/purple_200}"-->
         <TextView
             android:id="@+id/tv1"
             android:text="@string/statelistdrawable_str1"
             style="@style/text_style"
             android:layout_marginTop="60dp"
             bindSelected="@{vm.selected}"
-            bg_normalColor="@{@color/teal_200}"
-            bg_selectedColor="@{@color/purple_200}"/>
+/>
 
+<!--        bg_imageNormal="@{R.drawable.shape_normal}"-->
+<!--        bg_imageSelected="@{R.drawable.shape_selected}"-->
         <TextView
             android:id="@+id/tv2"
             android:text="@string/statelistdrawable_str2"
             style="@style/text_style"
             android:layout_marginTop="60dp"
             bindSelected="@{vm.selected}"
-            bg_imageNormal="@{R.drawable.shape_normal}"
-            bg_imageSelected="@{R.drawable.shape_selected}"/>
+/>
 
+<!--        bg_imageNormal="@{R.mipmap.image_normal}"-->
+<!--        bg_imageSelected="@{R.mipmap.image_selected}"-->
         <TextView
             android:id="@+id/tv3"
             android:text="@string/statelistdrawable_str3"
             style="@style/text_style"
             android:layout_marginTop="30dp"
             bindSelected="@{vm.selected}"
-            bg_imageNormal="@{R.mipmap.image_normal}"
-            bg_imageSelected="@{R.mipmap.image_selected}"/>
+/>
 
+<!--        text_normalColor="@{@color/teal_200}"-->
+<!--        text_selectedColor="@{@color/purple_200}"-->
+<!--        bindSelected="@{vm.selected}"-->
+<!--        bg_state="@{s.setState(0, R.mipmap.image_normal, R.mipmap.image_selected)}"-->
         <TextView
             android:id="@+id/tv4"
             android:text="@string/statelistdrawable_str4"
             style="@style/text_style"
             android:layout_marginTop="30dp"
-            text_normalColor="@{@color/teal_200}"
-            text_selectedColor="@{@color/purple_200}"
-            bindSelected="@{vm.selected}"
-            bg_state="@{s.setState(0, R.mipmap.image_normal, R.mipmap.image_selected)}"/>
+/>
 
+<!--        text_state2='@{c.textStateColor2(1, "#FFBB86FC", "#FF03DAC5")}'-->
+<!--        android:text="@string/statelistdrawable_str5"-->
+<!--        bindEnabled="@{vm.selected}"-->
+<!--        bg_state2="@{s.setState2(1, g.drawable(0, @color/teal_200), g.drawable(10, @color/purple_200))}"-->
         <TextView
             android:id="@+id/tv5"
             style="@style/text_style"
             android:layout_marginTop="30dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            text_state2='@{c.textStateColor2(1, "#FFBB86FC", "#FF03DAC5")}'
-            android:text="@string/statelistdrawable_str5"
-            bindEnabled="@{vm.selected}"
-            bg_state2="@{s.setState2(1, g.drawable(0, @color/teal_200), g.drawable(10, @color/purple_200))}"/>
+        />
 
     </LinearLayout>
 </layout>

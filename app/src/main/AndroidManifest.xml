@@ -13,7 +13,7 @@
         android:theme="@style/Theme.DrawableMaker"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".DrawableTestActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +24,7 @@
 
         <activity android:name=".GradientDrawableActivity"/>
         <activity android:name=".StateListDrawableActivity"/>
+<!--        <activity android:name=".DrawableTestActivity"/>-->
 
     </application>
 
