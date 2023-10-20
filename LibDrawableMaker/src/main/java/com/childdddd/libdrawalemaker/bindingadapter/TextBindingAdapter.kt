@@ -5,7 +5,7 @@ import androidx.annotation.ColorInt
 import androidx.databinding.BindingAdapter
 import com.childdddd.libdrawalemaker.property.ColorStateListProperty
 import com.childdddd.libdrawalemaker.property.ColorStateListProperty2
-import com.childdddd.libdrawalemaker.utils.StateListDrawableUtil
+import com.childdddd.libdrawalemaker.utils.Constants.INDEX_SELECTED
 import com.childdddd.libdrawalemaker.utils.createColorList
 import com.childdddd.libdrawalemaker.utils.parseColor
 
@@ -28,7 +28,7 @@ import com.childdddd.libdrawalemaker.utils.parseColor
     ["text_normalColor", "text_selectedColor"], requireAll = true
 )
 fun TextView.setTextColor(@ColorInt normal: Int, @ColorInt selected: Int) {
-    setTextColor(createColorList(StateListDrawableUtil.INDEX_SELECTED, normal, selected))
+    setTextColor(createColorList(INDEX_SELECTED, normal, selected))
 }
 
 /**

@@ -1,12 +1,6 @@
 package com.childdddd.libdrawalemaker.property
 
 import androidx.annotation.ColorInt
-import com.childdddd.libdrawalemaker.utils.StateListDrawableUtil.INDEX_CHECKED
-import com.childdddd.libdrawalemaker.utils.StateListDrawableUtil.INDEX_ENABLED
-import com.childdddd.libdrawalemaker.utils.StateListDrawableUtil.INDEX_FOCUSED
-import com.childdddd.libdrawalemaker.utils.StateListDrawableUtil.INDEX_PRESSED
-import com.childdddd.libdrawalemaker.utils.StateListDrawableUtil.INDEX_SELECTED
-
 /**
 
  * @Author Remiel

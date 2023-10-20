@@ -1,10 +1,11 @@
 package com.childdddd.libdrawalemaker.drawablekt
 
-import android.graphics.drawable.Drawable
+import android.annotation.SuppressLint
 import android.graphics.drawable.GradientDrawable
 import com.childdddd.libdrawalemaker.property.CornerProperty
 import com.childdddd.libdrawalemaker.property.GradientProperty
 import com.childdddd.libdrawalemaker.property.StrokeProperty
+import com.childdddd.libdrawalemaker.utils.Constants.NONE
 import com.childdddd.libdrawalemaker.utils.dp
 
 /**
@@ -15,7 +16,8 @@ import com.childdddd.libdrawalemaker.utils.dp
  */
 
 fun  GradientDrawable.addStroke(strokeProperty: StrokeProperty) {
-    this.shape = strokeProperty.shape
+    checkAndSetShape(strokeProperty.shape)
+
     this.addStroke(
         strokeProperty.strokeWith,
         strokeProperty.strokeColor,
@@ -49,8 +51,9 @@ fun GradientDrawable.addStroke(
     }
 }
 
+@SuppressLint("WrongConstant")
 fun GradientDrawable.addCorner(cornerProperty: CornerProperty) {
-    this.shape = cornerProperty.shape
+    this.checkAndSetShape(cornerProperty.shape)
     this.addCorners(cornerProperty.radius)
     this.setColor(cornerProperty.solidColor)
     this.useLevel = cornerProperty.useLevel
@@ -77,9 +80,9 @@ fun GradientDrawable.addCorners(radius: IntArray) {
     )
 }
 
+@SuppressLint("WrongConstant")
 fun GradientDrawable.addGradient(gradientProperty: GradientProperty) {
-    shape = gradientProperty.shape
-
+    checkAndSetShape(gradientProperty.shape)
     when (gradientProperty.gradientType) {
         GradientDrawable.LINEAR_GRADIENT -> {
             gradientType = GradientDrawable.LINEAR_GRADIENT
@@ -127,6 +130,9 @@ fun GradientDrawable.addGradient(
     }
 }
 
-fun Drawable.commonProperty(level: Int) {
-    this.level = level
+fun GradientDrawable.checkAndSetShape(shape: Int) {
+    if (shape != NONE) {
+        this.shape = shape
+    }
 }
+

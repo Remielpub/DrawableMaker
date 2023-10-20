@@ -19,8 +19,5 @@ class MainActivity : AppCompatActivity() {
         binding.bt2.setOnClickListener {
             StateListDrawableActivity.start(this)
         }
-        binding.bt3.setOnClickListener {
-            DrawableTestActivity.start(this)
-        }
     }
 }

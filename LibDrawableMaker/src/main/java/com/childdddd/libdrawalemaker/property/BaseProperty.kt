@@ -1,8 +1,6 @@
 package com.childdddd.libdrawalemaker.property
 
 import android.graphics.drawable.Drawable
-import android.graphics.drawable.GradientDrawable
-import androidx.annotation.IntDef
 import androidx.annotation.IntRange
 import com.childdddd.libdrawalemaker.drawablekt.commonProperty
 
@@ -19,9 +17,3 @@ open class BaseProperty(
         drawable.commonProperty(level)
     }
 }
-
-@IntDef(*[GradientDrawable.RECTANGLE, GradientDrawable.OVAL, GradientDrawable.LINE, GradientDrawable.RING])
-@Retention(
-    AnnotationRetention.SOURCE
-)
-annotation class Shape

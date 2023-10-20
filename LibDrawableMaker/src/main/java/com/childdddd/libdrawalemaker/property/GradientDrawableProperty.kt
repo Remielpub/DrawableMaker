@@ -7,6 +7,9 @@ import androidx.annotation.IntDef
 import com.childdddd.libdrawalemaker.drawablekt.addCorner
 import com.childdddd.libdrawalemaker.drawablekt.addGradient
 import com.childdddd.libdrawalemaker.drawablekt.addStroke
+import com.childdddd.libdrawalemaker.utils.Constants.NONE
+import com.childdddd.libdrawalemaker.utils.Constants.OVAL
+import com.childdddd.libdrawalemaker.utils.Constants.RECTANGLE
 
 /**
  * @Author Remiel
@@ -24,7 +27,7 @@ import com.childdddd.libdrawalemaker.drawablekt.addStroke
 data class CornerProperty(
     var radius: IntArray,
     @ColorInt var solidColor: Int,
-    @Shape var shape: Int = GradientDrawable.RECTANGLE,
+    @Shape var shape: Int = NONE,
     var useLevel: Boolean = false,
     override var level: Int = 10000,
 ) : BaseProperty(level) {
@@ -53,7 +56,7 @@ data class StrokeProperty(
     @ColorInt var strokeColor: Int,
     var dashWidth: Float = 0F,
     var dashGap: Float = 0F,
-    @Shape var shape: Int = GradientDrawable.RECTANGLE,
+    @Shape var shape: Int = NONE,
     var useLevel: Boolean = false,
     override var level: Int = 10000,
 ) : BaseProperty(level) {
@@ -114,7 +117,7 @@ data class GradientProperty(
     @GradientType var gradientType: Int = GradientDrawable.LINEAR_GRADIENT,
     var gradientRadius: Float = 0F,
     var center: Pair<Float, Float> = Pair(0.5F, 0.5F),
-    @Shape var shape: Int = GradientDrawable.RECTANGLE,
+    @Shape var shape: Int = NONE,
     var useLevel: Boolean = false,
     override var level: Int = 10000,
 ) : BaseProperty(level) {
@@ -135,3 +138,13 @@ data class GradientProperty(
     AnnotationRetention.SOURCE
 )
 annotation class GradientType
+
+
+
+@IntDef(*[NONE, RECTANGLE, OVAL])
+@Retention(
+    AnnotationRetention.SOURCE
+)
+annotation class Shape
+
+

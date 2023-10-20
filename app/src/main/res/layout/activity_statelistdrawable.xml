@@ -3,15 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.childdddd.libdrawalemaker.utils.StateListDrawableUtil"
-            alias="s"/>
 
-        <import type="com.childdddd.libdrawalemaker.utils.GradientDrawableUtil"
-            alias="g"/>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
 
-        <import type="com.childdddd.libdrawalemaker.utils.ColorStateListUtil"
-            alias="c"/>
-        <import type="com.remiel.drawablemaker.R"/>
+        <import
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.ColorStateListUtil" />
+
+        <import type="com.remiel.drawablemaker.R" />
 
         <variable
             name="vm"
@@ -23,58 +24,56 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-<!--        bg_normalColor="@{@color/teal_200}"-->
-<!--        bg_selectedColor="@{@color/purple_200}"-->
         <TextView
             android:id="@+id/tv1"
-            android:text="@string/statelistdrawable_str1"
             style="@style/text_style"
-            android:layout_marginTop="60dp"
+            bg_drawable="@{dm.stateDrawable().withSelected(@color/teal_200, @color/purple_200).make()}"
             bindSelected="@{vm.selected}"
-/>
+            android:layout_marginTop="60dp"
+            android:background="@color/white"
+            android:text="@string/statelistdrawable_str1" />
 
-<!--        bg_imageNormal="@{R.drawable.shape_normal}"-->
-<!--        bg_imageSelected="@{R.drawable.shape_selected}"-->
         <TextView
             android:id="@+id/tv2"
-            android:text="@string/statelistdrawable_str2"
             style="@style/text_style"
-            android:layout_marginTop="60dp"
+            bg_drawable="@{dm.stateDrawable().withSelected(R.drawable.shape_normal, R.drawable.shape_selected).make()}"
             bindSelected="@{vm.selected}"
-/>
+            android:layout_marginTop="60dp"
+            android:text="@string/statelistdrawable_str2" />
 
-<!--        bg_imageNormal="@{R.mipmap.image_normal}"-->
-<!--        bg_imageSelected="@{R.mipmap.image_selected}"-->
         <TextView
             android:id="@+id/tv3"
-            android:text="@string/statelistdrawable_str3"
             style="@style/text_style"
-            android:layout_marginTop="30dp"
+            bg_drawable="@{dm.stateDrawable().withSelected(R.mipmap.image_normal, R.mipmap.image_selected).make()}"
             bindSelected="@{vm.selected}"
-/>
+            android:layout_marginTop="30dp"
+            android:text="@string/statelistdrawable_str3"
 
-<!--        text_normalColor="@{@color/teal_200}"-->
-<!--        text_selectedColor="@{@color/purple_200}"-->
-<!--        bindSelected="@{vm.selected}"-->
-<!--        bg_state="@{s.setState(0, R.mipmap.image_normal, R.mipmap.image_selected)}"-->
+            />
+
+
         <TextView
             android:id="@+id/tv4"
-            android:text="@string/statelistdrawable_str4"
             style="@style/text_style"
+            bg_drawable="@{dm.stateDrawable().withSelected(R.mipmap.image_normal, R.mipmap.image_selected).make()}"
+            bindSelected="@{vm.selected}"
+            text_normalColor="@{@color/teal_200}"
+            text_selectedColor="@{@color/purple_200}"
             android:layout_marginTop="30dp"
-/>
+            android:text="@string/statelistdrawable_str4"
+            />
 
-<!--        text_state2='@{c.textStateColor2(1, "#FFBB86FC", "#FF03DAC5")}'-->
-<!--        android:text="@string/statelistdrawable_str5"-->
-<!--        bindEnabled="@{vm.selected}"-->
-<!--        bg_state2="@{s.setState2(1, g.drawable(0, @color/teal_200), g.drawable(10, @color/purple_200))}"-->
+
         <TextView
             android:id="@+id/tv5"
             style="@style/text_style"
-            android:layout_marginTop="30dp"
+            bg_drawable="@{dm.stateDrawable().withEnabled(dm.drawable().withColor(@color/teal_200).make(), dm.drawable().withColor(@color/purple_200).make()).make()}"
+            bindEnabled="@{vm.selected}"
+            text_state2='@{c.textStateColor2(1, "#FFBB86FC", "#FF03DAC5")}'
             android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
-        />
+            android:text="@string/statelistdrawable_str5" />
 
     </LinearLayout>
 </layout>
