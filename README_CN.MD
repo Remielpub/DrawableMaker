@@ -308,6 +308,10 @@ dependencies {
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+        
         <variable
             name="vm"
             type="com.remiel.drawablemaker.StateListDrawableViewModel" />
@@ -320,10 +324,10 @@ dependencies {
         <TextView
             android:id="@+id/tv1"
             style="@style/text_style"
-            android:layout_marginTop="60dp"
+            bg_drawable="@{dm.stateDrawable().withSelected(@color/teal_200, @color/purple_200).make()}"
             bindSelected="@{vm.selected}"
-            bg_normalColor="@{@color/teal_200}"
-            bg_selectedColor="@{@color/purple_200}"/>      
+            android:layout_marginTop="60dp"
+            android:background="@color/white"/>  
     </LinearLayout>
 </layout>
 ```
@@ -341,7 +345,11 @@ dependencies {
 
     <data>
         <import type="com.remiel.drawablemaker.R"/>
-
+        
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+        
         <variable
             name="vm"
             type="com.remiel.drawablemaker.StateListDrawableViewModel" />
@@ -354,10 +362,9 @@ dependencies {
         <TextView
             android:id="@+id/tv2"
             style="@style/text_style"
-            android:layout_marginTop="60dp"
+            bg_drawable="@{dm.stateDrawable().withSelected(R.drawable.shape_normal, R.drawable.shape_selected).make()}"
             bindSelected="@{vm.selected}"
-            bg_imageNormal="@{R.drawable.shape_normal}"
-            bg_imageSelected="@{R.drawable.shape_selected}"/>
+            android:layout_marginTop="60dp"/>
     </LinearLayout>
 </layout>
 ```
@@ -376,6 +383,10 @@ dependencies {
     <data>
         <import type="com.remiel.drawablemaker.R"/>
 
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+        
         <variable
             name="vm"
             type="com.remiel.drawablemaker.StateListDrawableViewModel" />
@@ -386,12 +397,11 @@ dependencies {
         android:layout_height="match_parent"
         android:orientation="vertical">
       <TextView
-            android:id="@+id/tv3"
-            style="@style/text_style"
-            android:layout_marginTop="30dp"
-            bindSelected="@{vm.selected}"
-            bg_imageNormal="@{R.mipmap.image_normal}"
-            bg_imageSelected="@{R.mipmap.image_selected}"/>
+          android:id="@+id/tv3"
+          style="@style/text_style"
+          bg_drawable="@{dm.stateDrawable().withSelected(R.mipmap.image_normal, R.mipmap.image_selected).make()}"
+          bindSelected="@{vm.selected}"
+          android:layout_marginTop="30dp"/>
     </LinearLayout>
 </layout>
 ```
@@ -408,8 +418,9 @@ dependencies {
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.childdddd.libdrawalemaker.utils.StateListDrawableUtil"
-            alias="s"/>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
 
         <variable
             name="vm"
@@ -423,11 +434,11 @@ dependencies {
         <TextView
             android:id="@+id/tv4"
             style="@style/text_style"
-            android:layout_marginTop="30dp"
+            bg_drawable="@{dm.stateDrawable().withSelected(R.mipmap.image_normal, R.mipmap.image_selected).make()}"
+            bindSelected="@{vm.selected}"
             text_normalColor="@{@color/teal_200}"
             text_selectedColor="@{@color/purple_200}"
-            bindSelected="@{vm.selected}"
-            bg_state="@{s.setState(0, R.mipmap.image_normal, R.mipmap.image_selected)}"/>
+            android:layout_marginTop="30dp" />
 
     </LinearLayout>
 </layout>
@@ -445,11 +456,9 @@ dependencies {
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.childdddd.libdrawalemaker.utils.StateListDrawableUtil"
-            alias="s"/>
-
-        <import type="com.childdddd.libdrawalemaker.utils.GradientDrawableUtil"
-            alias="g"/>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
 
         <import type="com.childdddd.libdrawalemaker.utils.ColorStateListUtil"
             alias="c"/>
@@ -465,12 +474,12 @@ dependencies {
         <TextView
             android:id="@+id/tv5"
             style="@style/text_style"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            text_state2='@{c.textStateColor2(1, "#FFBB86FC", "#FF03DAC5")}'
+            bg_drawable="@{dm.stateDrawable().withEnabled(dm.drawable().withColor(@color/teal_200).make(), dm.drawable().withColor(@color/purple_200).make()).make()}"
             bindEnabled="@{vm.selected}"
-            bg_state2="@{s.setState2(1, g.drawable(0, @color/teal_200), g.drawable(10, @color/purple_200))}"/>
+            text_state2='@{c.textStateColor2(1, "#FFBB86FC", "#FF03DAC5")}'
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"/>
     </LinearLayout>
 </layout>
 ```
@@ -480,11 +489,6 @@ dependencies {
 ![image_statelist_5.gif](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_statelist_5.gif)
 
 ### 2. 在代码中使用
-
-```kotlin
-val drawable = GradientDrawableUtil.drawable(10, Color.RED,  5, Color.BLUE)
-view.background = drawable 
-```
 
 代码中使用方式与xml中，创建Drawable对象方式一样，这里就不再赘述。
 
