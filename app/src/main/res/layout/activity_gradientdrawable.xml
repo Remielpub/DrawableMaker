@@ -12,16 +12,11 @@
             type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
 
         <import
-            alias="o"
-            type="android.graphics.drawable.GradientDrawable.Orientation" />
-
-        <import
-            alias="gd"
-            type="android.graphics.drawable.GradientDrawable" />
-
-        <import
             alias="c"
             type="com.childdddd.libdrawalemaker.utils.Constants" />
+
+        <import type="com.childdddd.libdrawalemaker.factory.PropertyFactory"
+            alias="pf"/>
 
     </data>
 
@@ -46,11 +41,18 @@
                 android:layout_marginTop="30dp"
                 android:text="设置【纯色】【矩形】Drawable背景 2" />
 
+
+            <TextView
+                style="@style/text_style"
+                bg_withCorners='@{pf.cornerProperty(0, "#FF018786", c.RECTANGLE)}'
+                android:layout_marginTop="30dp"
+                android:text="设置【纯色】【矩形】Drawable背景 3" />
+
             <TextView
                 style="@style/text_style"
                 bg_drawable="@{dm.drawable().withColor(@color/purple_200, c.OVAL).make()}"
                 android:layout_marginTop="30dp"
-                android:text="设置【纯色】【圆形】Drawable 背景 3" />
+                android:text="设置【纯色】【圆形】Drawable 背景" />
 
 
             <TextView
@@ -68,6 +70,12 @@
 
             <TextView
                 style="@style/text_style"
+                bg_withCorners='@{pf.cornerProperty(10, "#FF018786", c.RECTANGLE)}'
+                android:layout_marginTop="30dp"
+                android:text="设置【全部圆角】【纯色背景】【矩形】背景3" />
+
+            <TextView
+                style="@style/text_style"
                 bg_drawable="@{dm.drawable().withCorner(d.cornerRadius(0, 10, 10, 0), @color/purple_200).make()}"
                 android:layout_marginTop="30dp"
                 android:text="设置【部分圆角】【纯色背景】【矩形】背景1" />
@@ -80,9 +88,22 @@
 
             <TextView
                 style="@style/text_style"
+                bg_withCorners='@{pf.cornerProperty(d.cornerRadius(0, 10, 10, 0), "#FF018786", c.RECTANGLE)}'
+                android:layout_marginTop="30dp"
+                android:text="设置【部分圆角】【纯色背景】【矩形】背景3" />
+
+            <TextView
+                style="@style/text_style"
                 bg_drawable="@{dm.drawable().withCorner(10).withStroke(1, @color/purple_200).make()}"
                 android:layout_marginTop="30dp"
-                android:text="设置 【全部圆角】【实线边框】【矩形】背景" />
+                android:text="设置 【全部圆角】【实线边框】【矩形】背景1" />
+
+            <TextView
+                style="@style/text_style"
+                bg_withCorners='@{pf.cornerProperty(10, "#FF018786", c.RECTANGLE)}'
+                bg_withStroke="@{pf.strokeProperty(1, @color/purple_200)}"
+                android:layout_marginTop="30dp"
+                android:text="设置 【全部圆角】【实线边框】【矩形】背景2" />
 
             <TextView
                 style="@style/text_style"
@@ -106,7 +127,14 @@
                 style="@style/text_style"
                 bg_drawable="@{dm.drawable().withDash(2, @color/purple_200, 10, 10, c.OVAL).make()}"
                 android:layout_marginTop="30dp"
-                android:text="设置【虚线边框】【圆形】背景" />
+                android:text="设置【虚线边框】【圆形】背景1" />
+
+            <TextView
+                style="@style/text_style"
+                bg_withCorners='@{pf.cornerProperty(10, "#FF018786", c.OVAL)}'
+                bg_withStroke="@{pf.dashProperty(3, @color/purple_200, 5, 5)}"
+                android:layout_marginTop="30dp"
+                android:text="设置【虚线边框】【圆形】背景2" />
 
             <TextView
                 style="@style/text_style"
@@ -117,25 +145,33 @@
 
             <TextView
                 style="@style/text_style"
-                bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), o.LEFT_RIGHT).make()}"
+                bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), c.ORIENTATION_LEFT_RIGHT).make()}"
                 android:layout_margin="15dp"
-                android:text="设置【圆角】【线性渐变颜色】背景" />
+                android:text="设置【圆角】【线性渐变颜色】背景1" />
 
             <TextView
                 style="@style/text_style"
-                bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), o.TOP_BOTTOM, c.OVAL, gd.RADIAL_GRADIENT, 30, d.center(0.5F, 0.5F)).make()}"
+                bg_withCorners='@{pf.cornerProperty(10, "#FF018786", c.RECTANGLE)}'
+                bg_withStroke="@{pf.strokeProperty(1, @color/purple_200)}"
+                bg_withGradient="@{pf.gradientProperty(d.colors(@color/purple_200, @color/teal_200), c.ORIENTATION_LEFT_RIGHT)}"
+                android:layout_margin="15dp"
+                android:text="设置【圆角】【线性渐变颜色】背景2" />
+
+            <TextView
+                style="@style/text_style"
+                bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), c.ORIENTATION_TOP_BOTTOM, c.OVAL, c.GRADIENT_LINEAR, 30, d.center(0.5F, 0.5F)).make()}"
                 android:layout_margin="15dp"
                 android:text="设置【雷达形状渐变颜色】【圆形】背景" />
 
             <TextView
                 style="@style/text_style"
-                bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), o.TOP_BOTTOM, c.OVAL, gd.SWEEP_GRADIENT).make()}"
+                bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), c.ORIENTATION_TOP_BOTTOM, c.OVAL, c.GRADIENT_SWEEP).make()}"
                 android:layout_margin="15dp"
                 android:text="设置【扫描形状渐变颜色】【圆形】背景" />
 
             <TextView
                 style="@style/text_style"
-                bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), o.LEFT_RIGHT, c.RECTANGLE, gd.LINEAR_GRADIENT, true, 1000).make()}"
+                bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), c.ORIENTATION_LEFT_RIGHT, c.RECTANGLE, c.GRADIENT_LINEAR, true, 1000).make()}"
                 android:layout_margin="15dp"
                 android:text="设置【圆角】【线性渐变颜色】【使用useLevel】背景" />
         </androidx.appcompat.widget.LinearLayoutCompat>

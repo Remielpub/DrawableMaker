@@ -7,6 +7,9 @@ import androidx.annotation.IntDef
 import com.childdddd.libdrawalemaker.drawablekt.addCorner
 import com.childdddd.libdrawalemaker.drawablekt.addGradient
 import com.childdddd.libdrawalemaker.drawablekt.addStroke
+import com.childdddd.libdrawalemaker.utils.Constants.GRADIENT_LINEAR
+import com.childdddd.libdrawalemaker.utils.Constants.GRADIENT_RADIAL
+import com.childdddd.libdrawalemaker.utils.Constants.GRADIENT_SWEEP
 import com.childdddd.libdrawalemaker.utils.Constants.NONE
 import com.childdddd.libdrawalemaker.utils.Constants.OVAL
 import com.childdddd.libdrawalemaker.utils.Constants.RECTANGLE
@@ -114,7 +117,7 @@ data class StrokeProperty(
 data class GradientProperty(
     var colors: IntArray,
     var orientation: GradientDrawable.Orientation,
-    @GradientType var gradientType: Int = GradientDrawable.LINEAR_GRADIENT,
+    @GradientType var gradientType: Int = GRADIENT_LINEAR,
     var gradientRadius: Float = 0F,
     var center: Pair<Float, Float> = Pair(0.5F, 0.5F),
     @Shape var shape: Int = NONE,
@@ -133,7 +136,7 @@ data class GradientProperty(
 }
 
 
-@IntDef(*[GradientDrawable.LINEAR_GRADIENT, GradientDrawable.RADIAL_GRADIENT, GradientDrawable.SWEEP_GRADIENT])
+@IntDef(*[GRADIENT_LINEAR, GRADIENT_RADIAL, GRADIENT_SWEEP])
 @Retention(
     AnnotationRetention.SOURCE
 )

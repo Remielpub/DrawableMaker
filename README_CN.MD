@@ -20,9 +20,17 @@ allprojects {
 }
 ```
 
-添加依赖：
+添加依赖及配置：
 
 ```groovy
+
+android {
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+}
+
 dependencies {
     implementation("com.github.Remielpub:DrawableMaker:1.0.0-alpha06")
 }
@@ -114,7 +122,40 @@ dependencies {
 
 ![image_gradient_2.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_2.jpg)
 
-##### 1.1.3 设置【纯色】【圆形】Drawable 背景
+##### 1.1.3 设置【纯色】【矩形】Drawable背景 方式3
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.Constants" />
+        <import type="com.childdddd.libdrawalemaker.factory.PropertyFactory"
+            alias="pf"/>
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv1"
+            style="@style/text_style"
+            android:layout_marginTop="60dp"
+            bg_withCorners='@{pf.cornerProperty(0, "#FF018786", c.RECTANGLE)}'/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+效果图：
+
+![image_gradient_18.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_18.jpg)
+
+##### 1.1.4 设置【纯色】【圆形】Drawable 背景 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -143,7 +184,7 @@ dependencies {
 
 ![image_gradient_3.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_3.jpg)
 
-##### 1.1.4 设置【全部圆角】【纯色背景】【矩形】背景 方式1
+##### 1.1.5 设置【全部圆角】【纯色背景】【矩形】背景 方式1
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -173,7 +214,7 @@ dependencies {
 
 ![image_gradient_4.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_4.jpg)
 
-##### 1.1.5 设置【全部圆角】【纯色背景】【矩形】背景 方式2
+##### 1.1.6 设置【全部圆角】【纯色背景】【矩形】背景 方式2
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -203,7 +244,39 @@ dependencies {
 
 ![image_gradient_5.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_5.jpg)
 
-##### 1.1.6 设置【部分圆角】【纯色背景】【矩形】背景 方式1
+##### 1.1.7 设置【全部圆角】【纯色背景】【矩形】背景 方式3
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.Constants" />
+        <import type="com.childdddd.libdrawalemaker.factory.PropertyFactory"
+            alias="pf"/>
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv4"
+            style="@style/text_style"
+            android:layout_margin="30dp"
+            bg_withCorners='@{pf.cornerProperty(10, "#FF018786", c.RECTANGLE)}'/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+效果图
+
+![image_gradient_19.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_19.jpg)
+
+##### 1.1.8 设置【部分圆角】【纯色背景】【矩形】背景 方式1
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -236,7 +309,7 @@ dependencies {
 
 ![image_gradient_6.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_6.jpg)
 
-##### 1.1.7 设置【部分圆角】【纯色背景】【矩形】背景 方式2
+##### 1.1.9 设置【部分圆角】【纯色背景】【矩形】背景 方式2
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -268,7 +341,41 @@ dependencies {
 
 ![image_gradient_7.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_7.jpg)
 
-##### 1.1.8 设置 【全部圆角】【实线边框】【矩形】背景
+##### 1.1.10 设置【部分圆角】【纯色背景】【矩形】背景 方式3
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.Constants" />
+        <import type="com.childdddd.libdrawalemaker.factory.PropertyFactory"
+            alias="pf"/>
+        <import
+            alias="d"
+            type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/text_style"
+            android:layout_margin="30dp"
+            bg_withCorners='@{pf.cornerProperty(d.cornerRadius(0, 10, 10, 0), "#FF018786", c.RECTANGLE)}'/>       
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+效果图
+
+![image_gradient_20.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_20.jpg)
+
+##### 1.1.11 设置 【全部圆角】【实线边框】【矩形】背景 方式1
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -297,7 +404,40 @@ dependencies {
 
 ![image_gradient_8.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_8.jpg)
 
-##### 1.1.9 设置 【部分圆角】【实线边框】【矩形】背景
+##### 1.1.12 设置 【全部圆角】【实线边框】【矩形】背景 方式2
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.Constants" />
+        <import type="com.childdddd.libdrawalemaker.factory.PropertyFactory"
+            alias="pf"/>
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv4"
+            style="@style/text_style"
+            android:layout_margin="30dp"
+            bg_withCorners='@{pf.cornerProperty(10, "#FF018786", c.RECTANGLE)}'
+            bg_withStroke="@{pf.strokeProperty(1, @color/purple_200)}"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+效果图
+
+![image_gradient_21.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_21.jpg)
+
+##### 1.1.13 设置 【部分圆角】【实线边框】【矩形】背景
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -329,7 +469,7 @@ dependencies {
 
 ![image_gradient_9.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_9.jpg)
 
-##### 1.1.10 设置【实线边框】【圆形】背景
+##### 1.1.14 设置【实线边框】【圆形】背景
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -358,7 +498,7 @@ dependencies {
 
 ![image_gradient_10.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_10.jpg)
 
-##### 1.1.11 设置【全部圆角】【虚线边框】【矩形】背景
+##### 1.1.15 设置【全部圆角】【虚线边框】【矩形】背景
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -387,7 +527,7 @@ dependencies {
 
 ![image_gradient_11.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_11.jpg)
 
-##### 1.1.12 设置【虚线边框】【圆形】背景
+##### 1.1.16 设置【虚线边框】【圆形】背景 方式1
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -416,7 +556,39 @@ dependencies {
 
 ![image_gradient_12.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_12.jpg)
 
-##### 1.1.13 设置【圆角】【纯色背景】【实线边框】
+##### 1.1.17 设置【虚线边框】【圆形】背景 方式2
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.Constants" />
+        <import type="com.childdddd.libdrawalemaker.factory.PropertyFactory"
+            alias="pf"/>
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/text_style"
+            android:layout_marginTop="30dp"
+            bg_withCorners='@{pf.cornerProperty(10, "#FF018786", c.OVAL)}'
+            bg_withStroke="@{pf.dashProperty(3, @color/purple_200, 5, 5)}"/>   
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+效果图如下：
+
+![image_gradient_22.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_22.jpg)
+
+##### 1.1.18 设置【圆角】【纯色背景】【实线边框】
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -445,7 +617,7 @@ dependencies {
 
 ![image_gradient_13.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_13.jpg)
 
-##### 1.1.14 设置【圆角】【线性渐变颜色】背景
+##### 1.1.19 设置【圆角】【线性渐变颜色】背景 方式1
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -460,8 +632,8 @@ dependencies {
             alias="d"
             type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
         <import
-            alias="o"
-            type="android.graphics.drawable.GradientDrawable.Orientation" />
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.Constants" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -470,7 +642,7 @@ dependencies {
         android:orientation="vertical">
         <TextView
             style="@style/text_style"
-            bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), o.LEFT_RIGHT).make()}"
+            bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), c.ORIENTATION_LEFT_RIGHT).make()}"
             android:layout_marginTop="30dp" />   
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
@@ -480,7 +652,44 @@ dependencies {
 
 ![image_gradient_14.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_14.jpg)
 
-##### 1.1.15 设置【雷达形状渐变颜色】【圆形】背景
+##### 1.1.20 设置【圆角】【线性渐变颜色】背景 方式2
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.Constants" />
+        <import
+            alias="d"
+            type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
+        
+        <import type="com.childdddd.libdrawalemaker.factory.PropertyFactory"
+            alias="pf"/>
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/text_style"
+            android:layout_marginTop="30dp"
+            bg_withCorners='@{pf.cornerProperty(10, "#FF018786", c.RECTANGLE)}'
+            bg_withStroke="@{pf.strokeProperty(1, @color/purple_200)}"
+            bg_withGradient="@{pf.gradientProperty(d.colors(@color/purple_200, @color/teal_200), c.ORIENTATION_LEFT_RIGHT)}"/>   
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+效果图如下：
+
+![image_gradient_23.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_23.jpg)
+
+##### 1.1.21 设置【雷达形状渐变颜色】【圆形】背景
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -494,12 +703,7 @@ dependencies {
         <import
             alias="d"
             type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
-        <import
-            alias="o"
-            type="android.graphics.drawable.GradientDrawable.Orientation" />
-        <import
-            alias="gd"
-            type="android.graphics.drawable.GradientDrawable" />
+
         <import
             alias="c"
             type="com.childdddd.libdrawalemaker.utils.Constants" />
@@ -512,7 +716,7 @@ dependencies {
         android:orientation="vertical">
         <TextView
             style="@style/text_style"
-            bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), o.TOP_BOTTOM, c.OVAL, gd.RADIAL_GRADIENT, 30, d.center(0.5F, 0.5F)).make()}"
+            bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), c.ORIENTATION_TOP_BOTTOM, c.OVAL, c.GRADIENT_RADIAL, 30, d.center(0.5F, 0.5F)).make()}"
             android:layout_marginTop="30dp" />   
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
@@ -522,7 +726,7 @@ dependencies {
 
 ![image_gradient_15.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_15.jpg)
 
-##### 1.1.16 设置【扫描形状渐变颜色】【圆形】背景
+##### 1.1.22 设置【扫描形状渐变颜色】【圆形】背景
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -536,12 +740,6 @@ dependencies {
         <import
             alias="d"
             type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
-        <import
-            alias="o"
-            type="android.graphics.drawable.GradientDrawable.Orientation" />
-        <import
-            alias="gd"
-            type="android.graphics.drawable.GradientDrawable" />
         <import
             alias="c"
             type="com.childdddd.libdrawalemaker.utils.Constants" />
@@ -553,7 +751,7 @@ dependencies {
         android:orientation="vertical">
         <TextView
             style="@style/text_style"
-            bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), o.TOP_BOTTOM, c.OVAL, gd.SWEEP_GRADIENT).make()}"
+            bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), c.ORIENTATION_TOP_BOTTOM, c.OVAL, c.GRADIENT_SWEEP).make()}"
             android:layout_marginTop="30dp" />   
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
@@ -563,7 +761,7 @@ dependencies {
 
 ![image_gradient_16.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_16.jpg)
 
-##### 1.1.17 设置【圆角】【线性渐变颜色】【使用useLevel】背景
+##### 1.1.23 设置【圆角】【线性渐变颜色】【使用useLevel】背景
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -577,12 +775,6 @@ dependencies {
         <import
             alias="d"
             type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
-        <import
-            alias="o"
-            type="android.graphics.drawable.GradientDrawable.Orientation" />
-        <import
-            alias="gd"
-            type="android.graphics.drawable.GradientDrawable" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -591,7 +783,7 @@ dependencies {
         android:orientation="vertical">
         <TextView
             style="@style/text_style"
-            bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), o.LEFT_RIGHT, c.RECTANGLE, gd.LINEAR_GRADIENT, true, 1000).make()}"
+            bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), c.ORIENTATION_LEFT_RIGHT, c.RECTANGLE, c.GRADIENT_LINEAR, true, 1000).make()}"
             android:layout_marginTop="30dp" />   
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
@@ -798,8 +990,8 @@ dependencies {
 
 ## TODO
 
-1.渐变色背景支持 
+1.渐变色背景支持 ✅
 
-2.使用设计模式对项目重构，方便后续扩展及使用
+2.使用设计模式对项目重构，方便后续扩展及使用 ✅
 
 ##### 有问题欢迎随时联系我，QQ：120051195

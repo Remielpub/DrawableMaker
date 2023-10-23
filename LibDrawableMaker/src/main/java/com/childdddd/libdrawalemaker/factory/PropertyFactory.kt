@@ -10,6 +10,7 @@ import com.childdddd.libdrawalemaker.property.GradientType
 import com.childdddd.libdrawalemaker.property.Shape
 import com.childdddd.libdrawalemaker.property.StateProperty2
 import com.childdddd.libdrawalemaker.property.StrokeProperty
+import com.childdddd.libdrawalemaker.utils.Constants
 import com.childdddd.libdrawalemaker.utils.Constants.NONE
 import com.childdddd.libdrawalemaker.utils.DrawableUtil.cornerRadius
 import com.childdddd.libdrawalemaker.utils.parseColor
@@ -20,6 +21,27 @@ import com.childdddd.libdrawalemaker.utils.parseColor
  * @Describe
  */
 object PropertyFactory {
+    /**
+     * 圆角 & 背景颜色 Drawable 生成属性
+     *
+     * @param solidColor String: 填充颜色, 颜色值，如 #000000
+     * @return CornerProperty
+     */
+    @JvmStatic
+    fun cornerProperty(solidColor: String): CornerProperty {
+        return cornerProperty(0, solidColor)
+    }
+
+    /**
+     * 圆角 & 背景颜色 Drawable 生成属性
+     *
+     * @param solidColor Int : 填充颜色, ColorInt
+     * @return CornerProperty
+     */
+    @JvmStatic
+    fun cornerProperty(@ColorInt solidColor: Int): CornerProperty {
+        return cornerProperty(0, solidColor)
+    }
 
     /**
      * 圆角 & 背景颜色 Drawable 生成属性
@@ -36,8 +58,99 @@ object PropertyFactory {
     /**
      * 圆角 & 背景颜色 Drawable 生成属性
      *
-     * @param radius     IntArray : 四个角的圆角大小，单位dp, 可以使用[cornerRadius]方法转换
-     * @param solidColor Int      : 填充颜色, ColorInt
+     * @param radius Int        : 圆角数值，单位dp
+     * @param solidColor Int    : 填充颜色, ColorInt
+     * @return CornerProperty
+     */
+    @JvmStatic
+    fun cornerProperty(radius: Int, @ColorInt solidColor: Int): CornerProperty {
+        return CornerProperty(cornerRadius(radius), solidColor)
+    }
+
+    /**
+     * 圆角 & 背景颜色 Drawable 生成属性
+     *
+     * @param radius IntArray   : 四个角的圆角大小，单位dp, 可以使用[cornerRadius]方法转换
+     * @param solidColor String : 填充颜色, 颜色值，如 #000000
+     * @return CornerProperty
+     */
+    @JvmStatic
+    fun cornerProperty(radius: IntArray, solidColor: String): CornerProperty {
+        return CornerProperty(radius, parseColor(solidColor))
+    }
+
+    /**
+     * 圆角 & 背景颜色 Drawable 生成属性
+     *
+     * @param radius IntArray   : 四个角的圆角大小，单位dp, 可以使用[cornerRadius]方法转换
+     * @param solidColor Int    : 填充颜色, ColorInt
+     * @return CornerProperty
+     */
+    @JvmStatic
+    fun cornerProperty(radius: IntArray, @ColorInt solidColor: Int): CornerProperty {
+        return CornerProperty(radius, solidColor)
+    }
+
+    /**
+     * 圆角 & 背景颜色 Drawable 生成属性
+     *
+     * @param radius Int        : 圆角数值，单位dp
+     * @param solidColor String : 填充颜色, 颜色值，如 #000000
+     * @param shape Int         : 形状
+     * @return CornerProperty
+     */
+    @JvmStatic
+    fun cornerProperty(radius: Int, solidColor: String, @Shape shape: Int): CornerProperty {
+        return CornerProperty(cornerRadius(radius), parseColor(solidColor), shape)
+    }
+
+    /**
+     * 圆角 & 背景颜色 Drawable 生成属性
+     *
+     * @param radius Int        : 圆角数值，单位dp
+     * @param solidColor Int    : 填充颜色, ColorInt
+     * @param shape Int         : 形状
+     * @return CornerProperty
+     */
+    @JvmStatic
+    fun cornerProperty(radius: Int, @ColorInt solidColor: Int, @Shape shape: Int): CornerProperty {
+        return CornerProperty(cornerRadius(radius), solidColor, shape)
+    }
+
+    /**
+     * 圆角 & 背景颜色 Drawable 生成属性
+     *
+     * @param radius IntArray       : 四个角的圆角大小，单位dp, 可以使用[cornerRadius]方法转换
+     * @param solidColor String     : 填充颜色, 颜色值，如 #000000
+     * @param shape Int             : 形状
+     * @return CornerProperty
+     */
+    @JvmStatic
+    fun cornerProperty(radius: IntArray, solidColor: String, @Shape shape: Int): CornerProperty {
+        return CornerProperty(radius, parseColor(solidColor), shape)
+    }
+
+    /**
+     * 圆角 & 背景颜色 Drawable 生成属性
+     *
+     * @param radius IntArray    : 四个角的圆角大小，单位dp, 可以使用[cornerRadius]方法转换
+     * @param solidColor Int     : 填充颜色, ColorInt
+     * @param shape Int          : 形状
+     * @return CornerProperty
+     */
+    @JvmStatic
+    fun cornerProperty(radius: IntArray, @ColorInt solidColor: Int, @Shape shape: Int): CornerProperty {
+        return CornerProperty(radius, solidColor, shape)
+    }
+
+    /**
+     * 圆角 & 背景颜色 Drawable 生成属性
+     *
+     * @param radius IntArray    : 四个角的圆角大小，单位dp, 可以使用[cornerRadius]方法转换
+     * @param solidColor Int     : 填充颜色, ColorInt
+     * @param shape Int          : 形状
+     * @param useLevel Boolean   : 是否使用level
+     * @param level Int          : level值
      * @return CornerProperty
      */
     @JvmStatic
@@ -54,8 +167,11 @@ object PropertyFactory {
     /**
      * 四个角 圆角角度 不同 & 背景颜色 Drawable 生成属性
      *
-     * @param radius     IntArray : 四个角的圆角大小，单位dp, 可以使用[cornerRadius]方法转换
-     * @param solidColor String   : 填充颜色, 颜色值，如 #000000
+     * @param radius IntArray   : 四个角的圆角大小，单位dp, 可以使用[cornerRadius]方法转换
+     * @param solidColor String : 填充颜色, 颜色值，如 #000000
+     * @param shape Int         : 形状
+     * @param useLevel Boolean  : 是否使用level
+     * @param level Int         : level值
      * @return CornerProperty
      */
     @JvmStatic
@@ -67,6 +183,71 @@ object PropertyFactory {
         @IntRange(from = 0, to = 10000) level: Int
     ): CornerProperty {
         return CornerProperty(radius, parseColor(solidColor), shape, useLevel, level)
+    }
+
+    /**
+     *
+     * 实线边框 Drawable 生成属性
+     *
+     * @param strokeWidth Int       : 边框宽度，单位dp
+     * @param strokeColor String    : 边框颜色，颜色值，如 #000000
+     * @return StrokeProperty
+     */
+    @JvmStatic
+    fun strokeProperty(
+        strokeWidth: Int,
+        strokeColor: String
+    ): StrokeProperty {
+        return strokeProperty(strokeWidth, parseColor(strokeColor))
+    }
+
+    /**
+     * 实线边框 Drawable 生成属性
+     *
+     * @param strokeWidth Int   : 边框宽度，单位dp
+     * @param strokeColor Int   : 边框颜色，ColorInt
+     * @return StrokeProperty
+     */
+    @JvmStatic
+    fun strokeProperty(
+        strokeWidth: Int,
+        @ColorInt strokeColor: Int
+    ): StrokeProperty {
+        return StrokeProperty(strokeWidth, strokeColor, 0F, 0F, NONE, false, 10000)
+    }
+
+    /**
+     * 实线边框 Drawable 生成属性
+     *
+     * @param strokeWidth Int       : 边框宽度，单位dp
+     * @param strokeColor String    : 边框颜色，颜色值，如 #000000
+     * @param shape Int             : 形状
+     * @return StrokeProperty
+     */
+    @JvmStatic
+    fun strokeProperty(
+        strokeWidth: Int,
+        strokeColor: String,
+        @Shape shape: Int = NONE,
+    ): StrokeProperty {
+        return strokeProperty(strokeWidth, parseColor(strokeColor), shape, false, 10000)
+    }
+
+    /**
+     * 实线边框 Drawable 生成属性
+     *
+     * @param strokeWidth Int   : 边框宽度，单位dp
+     * @param strokeColor Int   : 边框颜色，ColorInt
+     * @param shape Int         : 形状
+     * @return StrokeProperty
+     */
+    @JvmStatic
+    fun strokeProperty(
+        strokeWidth: Int,
+        @ColorInt strokeColor: Int,
+        @Shape shape: Int
+    ): StrokeProperty {
+        return strokeProperty(strokeWidth, strokeColor, shape, false, 10000)
     }
 
     /**
@@ -103,6 +284,34 @@ object PropertyFactory {
         @IntRange(from = 0, to = 10000) level: Int
     ): StrokeProperty {
         return strokeProperty(strokeWidth, parseColor(strokeColor), shape, useLevel, level)
+    }
+
+    @JvmStatic
+    fun dashProperty(
+        strokeWidth: Int, strokeColor: String, dashWidth: Float, dashGap: Float
+    ): StrokeProperty {
+        return StrokeProperty(strokeWidth, parseColor(strokeColor), dashWidth, dashGap, NONE, false, 10000)
+    }
+
+    @JvmStatic
+    fun dashProperty(
+        strokeWidth: Int, @ColorInt strokeColor: Int, dashWidth: Float, dashGap: Float
+    ): StrokeProperty {
+        return StrokeProperty(strokeWidth, strokeColor, dashWidth, dashGap, NONE, false, 10000)
+    }
+
+    @JvmStatic
+    fun dashProperty(
+        strokeWidth: Int, strokeColor: String, dashWidth: Float, dashGap: Float, @Shape shape: Int
+    ): StrokeProperty {
+        return StrokeProperty(strokeWidth, parseColor(strokeColor), dashWidth, dashGap, shape, false, 10000)
+    }
+
+    @JvmStatic
+    fun dashProperty(
+        strokeWidth: Int, @ColorInt strokeColor: Int, dashWidth: Float, dashGap: Float, @Shape shape: Int
+    ): StrokeProperty {
+        return StrokeProperty(strokeWidth, strokeColor, dashWidth, dashGap, shape, false, 10000)
     }
 
     /**
@@ -151,6 +360,33 @@ object PropertyFactory {
      *
      * @param colors IntArray           :  渐变颜色数组
      * @param orientation Orientation   :  渐变方向
+     * @return GradientProperty
+     */
+    @JvmStatic
+    fun gradientProperty(colors: IntArray,
+                         orientation: GradientDrawable.Orientation): GradientProperty {
+        return GradientProperty(colors, orientation, GradientDrawable.LINEAR_GRADIENT, 0F, Pair(0.5F, 0.5F), NONE, false, 10000)
+    }
+
+    /**
+     * 渐变 Drawable 生成属性
+     *
+     * @param colors IntArray           :  渐变颜色数组
+     * @param orientation Orientation   :  渐变方向
+     * @param shape Int                 :  渐变形状，支持矩形、椭圆
+     * @return GradientProperty
+     */
+    @JvmStatic
+    fun gradientProperty(colors: IntArray,
+                         orientation: GradientDrawable.Orientation, @Shape shape: Int): GradientProperty {
+        return GradientProperty(colors, orientation, GradientDrawable.LINEAR_GRADIENT, 0F, Pair(0.5F, 0.5F), shape, false, 10000)
+    }
+
+    /**
+     * 渐变 Drawable 生成属性
+     *
+     * @param colors IntArray           :  渐变颜色数组
+     * @param orientation Orientation   :  渐变方向
      * @param gradientType Int          :  渐变类型，支持线性渐变、径向(雷达)渐变、扫描渐变
      * @param shape Int                 :  渐变形状，支持矩形、椭圆
      * @param useLevel Boolean          :  是否使用level
@@ -183,7 +419,7 @@ object PropertyFactory {
     @JvmStatic
     fun gradientProperty(colors: IntArray,
                          orientation: GradientDrawable.Orientation,
-                         @GradientType gradientType: Int = GradientDrawable.LINEAR_GRADIENT,
+                         @GradientType gradientType: Int = Constants.GRADIENT_LINEAR,
                          gradientRadius: Float,
                          center: Pair<Float, Float>,
                          @Shape shape: Int,

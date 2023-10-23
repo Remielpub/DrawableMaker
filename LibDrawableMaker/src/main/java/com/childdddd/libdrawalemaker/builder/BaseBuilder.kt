@@ -12,6 +12,10 @@ import com.childdddd.libdrawalemaker.property.BaseProperty
 abstract class BaseBuilder {
     protected val properties = mutableListOf<BaseProperty>()
 
+    fun append(properties: List<BaseProperty>) {
+        this.properties.addAll(properties)
+    }
+
     fun make(): Drawable {
         val drawable = createDrawable()
         properties.forEach {

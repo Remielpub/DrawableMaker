@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
 import com.childdddd.libdrawalemaker.DrawableMaker
+import com.childdddd.libdrawalemaker.property.CornerProperty
+import com.childdddd.libdrawalemaker.property.GradientProperty
+import com.childdddd.libdrawalemaker.property.StrokeProperty
 
 /**
  * @Author Remiel
@@ -22,7 +25,49 @@ fun View.setViewBackground(drawable: Drawable) {
     background = drawable
 }
 
+@BindingAdapter(
+    value =
+    ["bg_withCorners",
+    "bg_withStroke",
+    "bg_withGradient"], requireAll = false
+)
+fun View.setViewBackgroundProperty(cornerProperty: CornerProperty? = null, strokeProperty: StrokeProperty? = null,gradientProperty: GradientProperty? = null) {
+    val builder = DrawableMaker.drawable()
+    cornerProperty?.let {
+        builder.withCorner(
+            cornerProperty.radius,
+            cornerProperty.solidColor,
+            cornerProperty.shape,
+            cornerProperty.useLevel,
+            cornerProperty.level
+        )
+    }
+    strokeProperty?.let {
+        builder.withDash(
+            strokeProperty.strokeWith,
+            strokeProperty.strokeColor,
+            strokeProperty.dashWidth,
+            strokeProperty.dashGap,
+            strokeProperty.shape,
+            strokeProperty.useLevel,
+            strokeProperty.level
+        )
+    }
 
+    gradientProperty?.let {
+        builder.withGradient(
+            gradientProperty.colors,
+            gradientProperty.orientation,
+            gradientProperty.shape,
+            gradientProperty.gradientType,
+            gradientProperty.gradientRadius,
+            gradientProperty.center,
+            gradientProperty.useLevel,
+            gradientProperty.level
+        )
+    }
+    background = builder.make()
+}
 
 /**
  * 添加图片selector 选择器背景, Drawable & Mipmap

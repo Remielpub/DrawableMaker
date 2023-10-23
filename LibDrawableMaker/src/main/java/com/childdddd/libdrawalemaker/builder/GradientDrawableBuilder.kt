@@ -7,6 +7,7 @@ import androidx.annotation.IntRange
 import com.childdddd.libdrawalemaker.factory.PropertyFactory
 import com.childdddd.libdrawalemaker.property.GradientType
 import com.childdddd.libdrawalemaker.property.Shape
+import com.childdddd.libdrawalemaker.utils.Constants
 import com.childdddd.libdrawalemaker.utils.Constants.RECTANGLE
 import com.childdddd.libdrawalemaker.utils.DrawableUtil.cornerRadius
 import com.childdddd.libdrawalemaker.utils.parseColor
@@ -483,7 +484,7 @@ class GradientDrawableBuilder: BaseBuilder() {
             colors,
             orientation,
             shape,
-            GradientDrawable.LINEAR_GRADIENT,
+            Constants.GRADIENT_LINEAR,
             0F,
             Pair(0.5F, 0.5F)
         )

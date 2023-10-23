@@ -20,9 +20,16 @@ allprojects {
 }
 ```
 
-Add dependencies:
+Add dependencies and config:
 
 ```groovy
+android {
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+}
+
 dependencies {
     implementation("com.github.Remielpub:DrawableMaker:1.0.0-alpha06")
 }
@@ -114,7 +121,40 @@ Result：
 
 ![image_gradient_2.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_2.jpg)
 
-##### 1.1.3 Set the [solid] [round] Drawable background
+##### 1.1.3 Set [Solid color] [Rectangle] Drawable background mode 3
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.Constants" />
+        <import type="com.childdddd.libdrawalemaker.factory.PropertyFactory"
+            alias="pf"/>
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv1"
+            style="@style/text_style"
+            android:layout_marginTop="60dp"
+            bg_withCorners='@{pf.cornerProperty(0, "#FF018786", c.RECTANGLE)}'/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+Result：
+
+![image_gradient_18.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_18.jpg)
+
+##### 1.1.4 Set the [solid] [round] Drawable background
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -143,7 +183,7 @@ Result
 
 ![image_gradient_3.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_3.jpg)
 
-##### 1.1.4 Set [All round corners] [Solid background] [Rectangle] background mode 1
+##### 1.1.5 Set [All round corners] [Solid background] [Rectangle] background mode 1
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -173,7 +213,7 @@ Result:
 
 ![image_gradient_4.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_4.jpg)
 
-##### 1.1.5 Set [All round corners] [Solid background] [Rectangle] background mode 2
+##### 1.1.6 Set [All round corners] [Solid background] [Rectangle] background mode 2
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -203,7 +243,39 @@ Result
 
 ![image_gradient_5.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_5.jpg)
 
-##### 1.1.6 Set [partially rounded] [Solid background] [Rectangular] background mode 1
+##### 1.1.7 Set [All round corners] [Solid background] [Rectangle] background mode 3
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.Constants" />
+        <import type="com.childdddd.libdrawalemaker.factory.PropertyFactory"
+            alias="pf"/>
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv4"
+            style="@style/text_style"
+            android:layout_margin="30dp"
+            bg_withCorners='@{pf.cornerProperty(10, "#FF018786", c.RECTANGLE)}'/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+Result
+
+![image_gradient_19.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_19.jpg)
+
+##### 1.1.8 Set [partially rounded] [Solid background] [Rectangular] background mode 1
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -236,7 +308,7 @@ Result
 
 ![image_gradient_6.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_6.jpg)
 
-##### 1.1.7 Set [Partially rounded] [Solid background] [Rectangular] background mode 2
+##### 1.1.9 Set [Partially rounded] [Solid background] [Rectangular] background mode 2
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -268,7 +340,41 @@ Result
 
 ![image_gradient_7.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_7.jpg)
 
-##### 1.1.8 Set [All round corners] [Solid border] [Rectangle] background
+##### 1.1.10 Set [Partially rounded] [Solid background] [Rectangular] background mode 3
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.Constants" />
+        <import type="com.childdddd.libdrawalemaker.factory.PropertyFactory"
+            alias="pf"/>
+        <import
+            alias="d"
+            type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/text_style"
+            android:layout_margin="30dp"
+            bg_withCorners='@{pf.cornerProperty(d.cornerRadius(0, 10, 10, 0), "#FF018786", c.RECTANGLE)}'/>       
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+Result
+
+![image_gradient_20.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_20.jpg)
+
+##### 1.1.11 Set [All round corners] [Solid border] [Rectangle] background
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -297,7 +403,41 @@ Result：
 
 ![image_gradient_8.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_8.jpg)
 
-##### 1.1.9 Set [partially rounded] [solid border] [Rectangle] background
+##### 1.1.12 Set [All round corners] [Solid border] [Rectangle] background mode 2
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.Constants" />
+        <import type="com.childdddd.libdrawalemaker.factory.PropertyFactory"
+            alias="pf"/>
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv4"
+            style="@style/text_style"
+            android:layout_margin="30dp"
+            bg_withCorners='@{pf.cornerProperty(10, "#FF018786", c.RECTANGLE)}'
+            bg_withStroke="@{pf.strokeProperty(1, @color/purple_200)}"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+Result
+
+![image_gradient_21.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_21.jpg)
+
+
+##### 1.1.13 Set [partially rounded] [solid border] [Rectangle] background
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -329,7 +469,7 @@ Result：
 
 ![image_gradient_9.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_9.jpg)
 
-##### 1.1.10 Set the [solid border] [round] background
+##### 1.1.14 Set the [solid border] [round] background
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -358,7 +498,7 @@ Result：
 
 ![image_gradient_10.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_10.jpg)
 
-##### 1.1.11 Set [All round corners] [dashed border] [Rectangle] background
+##### 1.1.15 Set [All round corners] [dashed border] [Rectangle] background
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -387,7 +527,7 @@ Result：
 
 ![image_gradient_11.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_11.jpg)
 
-##### 1.1.12 Set [dotted border] [Circle] background
+##### 1.1.16 Set [dotted border] [Circle] background
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -416,7 +556,39 @@ Result：
 
 ![image_gradient_12.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_12.jpg)
 
-##### 1.1.13 Set 【 Rounded corners 】【 Solid background 】【 Solid border 】
+##### 1.1.17 Set [Dashed border] [Circle] background mode 2
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.Constants" />
+        <import type="com.childdddd.libdrawalemaker.factory.PropertyFactory"
+            alias="pf"/>
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/text_style"
+            android:layout_marginTop="30dp"
+            bg_withCorners='@{pf.cornerProperty(10, "#FF018786", c.OVAL)}'
+            bg_withStroke="@{pf.dashProperty(3, @color/purple_200, 5, 5)}"/>   
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+Result：
+
+![image_gradient_22.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_22.jpg)
+
+##### 1.1.18 Set 【 Rounded corners 】【 Solid background 】【 Solid border 】
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -445,7 +617,7 @@ Result：
 
 ![image_gradient_13.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_13.jpg)
 
-##### 1.1.14 Set the [Rounded] [Linear Gradient Color] background
+##### 1.1.19 Set the [Rounded] [Linear Gradient Color] background
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -480,7 +652,44 @@ Result：
 
 ![image_gradient_14.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_14.jpg)
 
-##### 1.1.15 Set the [Radar Shape Gradient Color] to the [Circle] background
+##### 1.1.20 Set [Rounded] [Linear Gradient Color] background mode 2
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.Constants" />
+        <import
+            alias="d"
+            type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
+        
+        <import type="com.childdddd.libdrawalemaker.factory.PropertyFactory"
+            alias="pf"/>
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/text_style"
+            android:layout_marginTop="30dp"
+            bg_withCorners='@{pf.cornerProperty(10, "#FF018786", c.RECTANGLE)}'
+            bg_withStroke="@{pf.strokeProperty(1, @color/purple_200)}"
+            bg_withGradient="@{pf.gradientProperty(d.colors(@color/purple_200, @color/teal_200), c.ORIENTATION_LEFT_RIGHT)}"/>   
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+Result：
+
+![image_gradient_23.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_23.jpg)
+
+##### 1.1.21 Set the [Radar Shape Gradient Color] to the [Circle] background
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -522,7 +731,7 @@ Result：
 
 ![image_gradient_15.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_15.jpg)
 
-##### 1.1.16 Set the [Scan Shape Gradient Color] [Circle] background
+##### 1.1.22 Set the [Scan Shape Gradient Color] [Circle] background
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -563,7 +772,7 @@ Result：
 
 ![image_gradient_16.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_16.jpg)
 
-##### 1.1.17 Set the [Rounded] [Linear gradient color] [Use useLevel] background
+##### 1.1.23 Set the [Rounded] [Linear gradient color] [Use useLevel] background
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

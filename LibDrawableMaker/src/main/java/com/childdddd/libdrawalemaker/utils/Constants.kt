@@ -2,11 +2,11 @@ package com.childdddd.libdrawalemaker.utils
 
 import android.graphics.drawable.GradientDrawable
 
-/**
 
+/**
  * @Author dangxiaohan
  * @Date 2023/10/20-15:33
- * @Describe
+ * @Describe : drawable 常量属性
  */
 object Constants {
 
@@ -79,4 +79,68 @@ object Constants {
      * 聚焦状态索引
      */
     const val INDEX_FOCUSED  = 4
+
+    /**
+     * 渐变类型: 线性渐变
+     */
+    const val GRADIENT_LINEAR = GradientDrawable.LINEAR_GRADIENT
+
+    /**
+     * 渐变类型: 径向(辐射)渐变
+     */
+    const val GRADIENT_RADIAL = GradientDrawable.RADIAL_GRADIENT
+
+    /**
+     * 渐变类型: 扫描渐变
+     */
+    const val GRADIENT_SWEEP = GradientDrawable.SWEEP_GRADIENT
+
+    /**
+     * 渐变方向: 从上到下
+     */
+    @JvmStatic
+    val ORIENTATION_TOP_BOTTOM = GradientDrawable.Orientation.TOP_BOTTOM
+
+    /**
+     * 渐变方向: 从右上到左下
+     */
+    @JvmStatic
+    val ORIENTATION_TR_BL = GradientDrawable.Orientation.TR_BL
+
+    /**
+     * 渐变方向: 从右到左
+     */
+    @JvmStatic
+    val ORIENTATION_RIGHT_LEFT = GradientDrawable.Orientation.RIGHT_LEFT
+
+    /**
+     * 渐变方向: 从右下到左上
+     */
+    @JvmStatic
+    val ORIENTATION_BR_TL = GradientDrawable.Orientation.BR_TL
+
+    /**
+     * 渐变方向: 从下到上
+     */
+    @JvmStatic
+    val ORIENTATION_BOTTOM_TOP = GradientDrawable.Orientation.BOTTOM_TOP
+
+    /**
+     * 渐变方向: 从左下到右上
+     */
+    @JvmStatic
+    val ORIENTATION_BL_TR = GradientDrawable.Orientation.BL_TR
+
+    /**
+     * 渐变方向: 从左到右
+     */
+    @JvmStatic
+    val ORIENTATION_LEFT_RIGHT = GradientDrawable.Orientation.LEFT_RIGHT
+
+    /**
+     * 渐变方向: 从左上到右下
+     */
+    @JvmStatic
+    val ORIENTATION_TL_BR = GradientDrawable.Orientation.TL_BR
+
 }
