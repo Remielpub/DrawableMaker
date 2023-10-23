@@ -54,7 +54,7 @@ The principle is quite simple. It works in conjunction with ViewBinding and Bind
 
 #### 1.1 ColorDrawable & GradientDrawable
 
-##### 1.1.1 Set Add [Solid color] background
+##### 1.1.1 Set [Solid color] [Rectangle] Drawable background mode 1
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -62,8 +62,9 @@ The principle is quite simple. It works in conjunction with ViewBinding and Bind
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.childdddd.libdrawalemaker.utils.GradientDrawableUtil"
-            alias="g"/>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -71,10 +72,9 @@ The principle is quite simple. It works in conjunction with ViewBinding and Bind
         android:layout_height="match_parent"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/tv_8"
             style="@style/text_style"
             android:layout_marginTop="60dp"
-            bg_addCorners="@{g.addCorners(0, @color/purple_200)}"/>
+            bg_drawable="@{dm.drawable().withColor(@color/purple_200).make()}" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
 ```
@@ -83,7 +83,7 @@ Result：
 
 ![image_gradient_1.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_1.jpg)
 
-##### 1.1.2 Set Add [Rounded corners] [Solid color] background
+##### 1.1.2 Set [Solid color] [Rectangle] Drawable background mode 2
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -91,8 +91,9 @@ Result：
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.childdddd.libdrawalemaker.utils.GradientDrawableUtil"
-            alias="g"/>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -104,7 +105,7 @@ Result：
             android:id="@+id/tv1"
             style="@style/text_style"
             android:layout_marginTop="60dp"
-            bg_addCorners="@{g.addCorners(g.cornerRadius(10), @color/purple_200)}"/>
+            bg_drawable='@{dm.drawable().withColor("#FF018786").make()}'/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
 ```
@@ -113,7 +114,7 @@ Result：
 
 ![image_gradient_2.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_2.jpg)
 
-##### 1.1.3 Set Add [Solid Border] background
+##### 1.1.3 Set the [solid] [round] Drawable background
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -121,8 +122,9 @@ Result：
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.childdddd.libdrawalemaker.utils.GradientDrawableUtil"
-            alias="g"/>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -130,10 +132,9 @@ Result：
         android:layout_height="match_parent"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/tv2"
             style="@style/text_style"
             android:layout_marginTop="30dp"
-            bg_addStroke="@{g.addStroke(1, @color/purple_200)}"/>
+            bg_drawable="@{dm.drawable().withColor(@color/purple_200, c.OVAL).make()}"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
 ```
@@ -142,7 +143,7 @@ Result
 
 ![image_gradient_3.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_3.jpg)
 
-##### 1.1.4 Set Add [Dashed Border] background
+##### 1.1.4 Set [All round corners] [Solid background] [Rectangle] background mode 1
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -150,8 +151,9 @@ Result
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.childdddd.libdrawalemaker.utils.GradientDrawableUtil"
-            alias="g"/>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -160,19 +162,18 @@ Result
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv3"
             style="@style/text_style"
             android:layout_marginTop="30dp"
-            bg_addStroke="@{g.addDash(2, @color/purple_200, 10, 10)}" />
+            bg_drawable="@{dm.drawable().withCorner(10, @color/purple_200).make()}"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
 ```
 
-Result
+Result:
 
 ![image_gradient_4.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_4.jpg)
 
-##### 1.1.5 At the same time set [rounded corners] [solid color background] [solid line border] (Method 1)
+##### 1.1.5 Set [All round corners] [Solid background] [Rectangle] background mode 2
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -180,8 +181,9 @@ Result
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.childdddd.libdrawalemaker.utils.GradientDrawableUtil"
-            alias="g"/>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -192,16 +194,16 @@ Result
             android:id="@+id/tv4"
             style="@style/text_style"
             android:layout_margin="30dp"
-            bg_addCorners="@{g.addCorners(g.cornerRadius(10), @color/purple_200)}"
-            bg_addStroke="@{g.addStroke(2, @color/teal_200)}"/>
+            bg_drawable='@{dm.drawable().withCorner(10, "#FF018786").make()}'/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
 ```
 
 Result
+
 ![image_gradient_5.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_5.jpg)
 
-##### 1.1.6 At the same time set [partial rounded corners] [solid color background] [solid line border] (Method 2)
+##### 1.1.6 Set [partially rounded] [Solid background] [Rectangular] background mode 1
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -209,8 +211,12 @@ Result
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.childdddd.libdrawalemaker.utils.GradientDrawableUtil"
-            alias="g"/>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+        <import
+            alias="d"
+            type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -221,10 +227,7 @@ Result
             android:id="@+id/tv6"
             style="@style/text_style"
             android:layout_margin="30dp"
-            bg_corners="@{g.cornerRadius(0, 10, 10, 0)}"
-            bg_solidColor="@{@color/purple_200}"
-            bg_strokeWitdh="@{2}"
-            bg_strokeColor="@{@color/teal_200}"/>     
+            bg_drawable="@{dm.drawable().withCorner(d.cornerRadius(0, 10, 10, 0), @color/purple_200).make()}" />     
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
 ```
@@ -233,7 +236,7 @@ Result
 
 ![image_gradient_6.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_6.jpg)
 
-##### 1.1.7 At the same time set [rounded corners] [solid color background] [dashed border] (Method 1)
+##### 1.1.7 Set [Partially rounded] [Solid background] [Rectangular] background mode 2
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -241,8 +244,12 @@ Result
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.childdddd.libdrawalemaker.utils.GradientDrawableUtil"
-            alias="g"/>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+        <import
+            alias="d"
+            type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -250,19 +257,18 @@ Result
         android:layout_height="match_parent"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/tv5"
             style="@style/text_style"
             android:layout_margin="30dp"
-            bg_addCorners="@{g.addCorners(10, @color/purple_200)}"
-            bg_addStroke="@{g.addDash(2, @color/teal_200, 10, 10)}"/>       
+            bg_drawable='@{dm.drawable().withCorner(d.cornerRadius(0, 10, 10, 0), "#FF018786").make()}' />       
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
 ```
 
 Result
+
 ![image_gradient_7.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_7.jpg)
 
-##### 1.1.8 At the same time set [partial rounded corners] [solid color background] [dashed border] (Method 2)
+##### 1.1.8 Set [All round corners] [Solid border] [Rectangle] background
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -270,8 +276,9 @@ Result
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.childdddd.libdrawalemaker.utils.GradientDrawableUtil"
-            alias="g"/>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -279,15 +286,9 @@ Result
         android:layout_height="match_parent"
         android:orientation="vertical">
          <TextView
-            android:id="@+id/tv7"
-            style="@style/text_style"
-            android:layout_margin="30dp"
-            bg_corners="@{g.cornerRadius(0, 10, 10, 0)}"
-            bg_solidColor="@{@color/purple_200}"
-            bg_strokeWitdh="@{2}"
-            bg_strokeColor="@{@color/teal_200}"
-            bg_dashWidth="@{10}"
-            bg_dashGap="@{10}"/>     
+             style="@style/text_style"
+             android:layout_margin="30dp" 
+             bg_drawable="@{dm.drawable().withCorner(10).withStroke(1, @color/purple_200).make()}" />     
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
 ```
@@ -295,6 +296,311 @@ Result
 Result：
 
 ![image_gradient_8.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_8.jpg)
+
+##### 1.1.9 Set [partially rounded] [solid border] [Rectangle] background
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+        <import
+            alias="d"
+            type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/text_style"
+            bg_drawable="@{dm.drawable().withCorner(d.cornerRadius(10, 10)).withStroke(1, @color/purple_200).make()}"
+            android:layout_marginTop="30dp" />   
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+Result：
+
+![image_gradient_9.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_9.jpg)
+
+##### 1.1.10 Set the [solid border] [round] background
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/text_style"
+            bg_drawable="@{dm.drawable().withStroke(1, @color/purple_200, c.OVAL).make()}"
+            android:layout_marginTop="30dp" />   
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+Result：
+
+![image_gradient_10.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_10.jpg)
+
+##### 1.1.11 Set [All round corners] [dashed border] [Rectangle] background
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/text_style"
+            bg_drawable="@{dm.drawable().withCorner(10).withDash(2, @color/purple_200, 10, 10).make()}"
+            android:layout_marginTop="30dp" />   
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+Result：
+
+![image_gradient_11.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_11.jpg)
+
+##### 1.1.12 Set [dotted border] [Circle] background
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/text_style"
+            bg_drawable="@{dm.drawable().withDash(2, @color/purple_200, 10, 10, c.OVAL).make()}"
+            android:layout_marginTop="30dp" />   
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+Result：
+
+![image_gradient_12.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_12.jpg)
+
+##### 1.1.13 Set 【 Rounded corners 】【 Solid background 】【 Solid border 】
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/text_style"
+            bg_drawable="@{dm.drawable().withCorner(10, @color/purple_200).withStroke(2, @color/teal_200).make()}"
+            android:layout_marginTop="30dp" />   
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+Result：
+
+![image_gradient_13.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_13.jpg)
+
+##### 1.1.14 Set the [Rounded] [Linear Gradient Color] background
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+        <import
+            alias="d"
+            type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
+        <import
+            alias="o"
+            type="android.graphics.drawable.GradientDrawable.Orientation" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/text_style"
+            bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), o.LEFT_RIGHT).make()}"
+            android:layout_marginTop="30dp" />   
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+Result：
+
+![image_gradient_14.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_14.jpg)
+
+##### 1.1.15 Set the [Radar Shape Gradient Color] to the [Circle] background
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+        <import
+            alias="d"
+            type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
+        <import
+            alias="o"
+            type="android.graphics.drawable.GradientDrawable.Orientation" />
+        <import
+            alias="gd"
+            type="android.graphics.drawable.GradientDrawable" />
+        <import
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.Constants" />
+        
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/text_style"
+            bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), o.TOP_BOTTOM, c.OVAL, gd.RADIAL_GRADIENT, 30, d.center(0.5F, 0.5F)).make()}"
+            android:layout_marginTop="30dp" />   
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+Result：
+
+![image_gradient_15.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_15.jpg)
+
+##### 1.1.16 Set the [Scan Shape Gradient Color] [Circle] background
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+        <import
+            alias="d"
+            type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
+        <import
+            alias="o"
+            type="android.graphics.drawable.GradientDrawable.Orientation" />
+        <import
+            alias="gd"
+            type="android.graphics.drawable.GradientDrawable" />
+        <import
+            alias="c"
+            type="com.childdddd.libdrawalemaker.utils.Constants" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/text_style"
+            bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), o.TOP_BOTTOM, c.OVAL, gd.SWEEP_GRADIENT).make()}"
+            android:layout_marginTop="30dp" />   
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+Result：
+
+![image_gradient_16.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_16.jpg)
+
+##### 1.1.17 Set the [Rounded] [Linear gradient color] [Use useLevel] background
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+        <import
+            alias="d"
+            type="com.childdddd.libdrawalemaker.utils.DrawableUtil" />
+        <import
+            alias="o"
+            type="android.graphics.drawable.GradientDrawable.Orientation" />
+        <import
+            alias="gd"
+            type="android.graphics.drawable.GradientDrawable" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/text_style"
+            bg_drawable="@{dm.drawable().withCorner(10).withGradient(d.colors(@color/purple_200, @color/teal_200), o.LEFT_RIGHT, c.RECTANGLE, gd.LINEAR_GRADIENT, true, 1000).make()}"
+            android:layout_marginTop="30dp" />   
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+```
+
+Result：
+
+![image_gradient_17.jpg](https://github.com/Remielpub/DrawableMaker/blob/main/image/image_gradient_17.jpg)
+
 
 #### 1.2 StateListDrawable
 
@@ -306,6 +612,10 @@ Result：
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+        
         <variable
             name="vm"
             type="com.remiel.drawablemaker.StateListDrawableViewModel" />
@@ -319,9 +629,7 @@ Result：
             android:id="@+id/tv1"
             style="@style/text_style"
             android:layout_marginTop="60dp"
-            bindSelected="@{vm.selected}"
-            bg_normalColor="@{@color/teal_200}"
-            bg_selectedColor="@{@color/purple_200}"/>      
+            bg_drawable="@{dm.stateDrawable().withSelected(@color/teal_200, @color/purple_200).make()}" />      
     </LinearLayout>
 </layout>
 ```
@@ -340,6 +648,10 @@ Result
     <data>
         <import type="com.remiel.drawablemaker.R"/>
 
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
+        
         <variable
             name="vm"
             type="com.remiel.drawablemaker.StateListDrawableViewModel" />
@@ -354,8 +666,7 @@ Result
             style="@style/text_style"
             android:layout_marginTop="60dp"
             bindSelected="@{vm.selected}"
-            bg_imageNormal="@{R.drawable.shape_normal}"
-            bg_imageSelected="@{R.drawable.shape_selected}"/>
+            bg_drawable="@{dm.stateDrawable().withSelected(R.drawable.shape_normal, R.drawable.shape_selected).make()}" />
     </LinearLayout>
 </layout>
 ```
@@ -370,7 +681,10 @@ Result
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    <import
+        alias="dm"
+        type="com.childdddd.libdrawalemaker.DrawableMaker" />
+    
     <data>
         <import type="com.remiel.drawablemaker.R"/>
 
@@ -388,8 +702,7 @@ Result
             style="@style/text_style"
             android:layout_marginTop="30dp"
             bindSelected="@{vm.selected}"
-            bg_imageNormal="@{R.mipmap.image_normal}"
-            bg_imageSelected="@{R.mipmap.image_selected}"/>
+            bg_drawable="@{dm.stateDrawable().withSelected(R.mipmap.image_normal, R.mipmap.image_selected).make()}" />
     </LinearLayout>
 </layout>
 ```
@@ -406,8 +719,9 @@ Result
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.childdddd.libdrawalemaker.utils.StateListDrawableUtil"
-            alias="s"/>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
 
         <variable
             name="vm"
@@ -425,7 +739,7 @@ Result
             text_normalColor="@{@color/teal_200}"
             text_selectedColor="@{@color/purple_200}"
             bindSelected="@{vm.selected}"
-            bg_state="@{s.setState(0, R.mipmap.image_normal, R.mipmap.image_selected)}"/>
+            bg_drawable="@{dm.stateDrawable().withSelected(R.mipmap.image_normal, R.mipmap.image_selected).make()}" />
 
     </LinearLayout>
 </layout>
@@ -443,11 +757,9 @@ Result
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.childdddd.libdrawalemaker.utils.StateListDrawableUtil"
-            alias="s"/>
-
-        <import type="com.childdddd.libdrawalemaker.utils.GradientDrawableUtil"
-            alias="g"/>
+        <import
+            alias="dm"
+            type="com.childdddd.libdrawalemaker.DrawableMaker" />
 
         <import type="com.childdddd.libdrawalemaker.utils.ColorStateListUtil"
             alias="c"/>
@@ -466,9 +778,9 @@ Result
             android:layout_marginTop="30dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            text_state2='@{c.textStateColor2(1, "#FFBB86FC", "#FF03DAC5")}'
+            bg_drawable="@{dm.stateDrawable().withEnabled(dm.drawable().withColor(@color/teal_200).make(), dm.drawable().withColor(@color/purple_200).make()).make()}"
             bindEnabled="@{vm.selected}"
-            bg_state2="@{s.setState2(1, g.drawable(0, @color/teal_200), g.drawable(10, @color/purple_200))}"/>
+            text_state2='@{c.textStateColor2(1, "#FFBB86FC", "#FF03DAC5")}'/>
     </LinearLayout>
 </layout>
 ```
