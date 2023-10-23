@@ -31,7 +31,7 @@ android {
 }
 
 dependencies {
-    implementation("com.github.Remielpub:DrawableMaker:1.0.0-alpha06")
+    implementation("com.github.Remielpub:DrawableMaker:1.0.0-alpha07")
 }
 ```
 
